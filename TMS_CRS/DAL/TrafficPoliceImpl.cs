@@ -14,7 +14,7 @@ namespace TMS_CRS.DAL
         public int  Addpenalty(TmOffence o)
         {
             db.TmOffences.Add(o);
-             var res = db.SaveChanges();
+            var res = db.SaveChanges();
             if (res == 1)
                 return (int) db.OffenceDetails.Max(x=>x.OffenceId);
             return 0;
