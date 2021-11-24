@@ -16,7 +16,7 @@ namespace TMS_CRS.DAL
             db.TmOffences.Add(o);
             var res = db.SaveChanges();
             if (res == 1)
-                return (int) db.OffenceDetails.Max(x=>x.OffenceId);
+                return 1;
             return 0;
         }
         //traffic police can edit penalty status once the user pay penalty
