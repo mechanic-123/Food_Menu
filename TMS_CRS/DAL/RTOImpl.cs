@@ -11,6 +11,10 @@ namespace TMS_CRS.DAL
     public class RTOImpl : IRTO
     {
         readonly TMSDBContext db;
+        public RTOImpl()
+        {
+            db = new TMSDBContext();
+        }
         public RTOImpl(TMSDBContext db)
         {
             this.db = db;
@@ -46,7 +50,7 @@ namespace TMS_CRS.DAL
             db.TmRegdetails.Add(r);
             var res = db.SaveChanges();
             if (res == 1)
-                return int.Parse(db.TmRegdetails.Max(x => x.AppNo));
+                return 1;
             else
                 return 0;
         }
