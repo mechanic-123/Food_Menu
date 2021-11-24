@@ -6,7 +6,7 @@ namespace TestTMS
 {
     class TestRTO
     {
-        IRTO rto = new RTOImpl();
+        //IRTO rto = new RTOImpl();
         /*TmOwnerdetail owner = new TmOwnerdetail
         {
             Fname = "Vinsmoke",

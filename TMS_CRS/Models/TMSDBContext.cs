@@ -29,7 +29,7 @@ namespace TMS_CRS.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("server=(localdb)\\MSSqlLocalDB;Database=TMSDB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSqlLocalDB;Initial Catalog=TMSDB;Integrated Security=True;");
             }
         }
 
@@ -93,16 +93,14 @@ namespace TMS_CRS.Models
                 entity.Property(e => e.OffenceId).HasColumnName("OFFENCE_ID");
 
                 entity.Property(e => e.OffenceType)
-                    .IsRequired()
-                    .HasMaxLength(20)
+                    .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("OFFENCE_TYPE");
 
                 entity.Property(e => e.Penalty).HasColumnName("PENALTY");
 
                 entity.Property(e => e.VehType)
-                    .IsRequired()
-                    .HasMaxLength(10)
+                    .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("VEH_TYPE");
             });
