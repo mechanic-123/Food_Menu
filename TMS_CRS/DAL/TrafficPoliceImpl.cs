@@ -11,11 +11,13 @@ namespace TMS_CRS.DAL
     {
         TMSDBContext db = new TMSDBContext();
         //traffic police can add penalty 
-        public int  Addpenalty(TmOffence o)
+        public int  Addpenalty(TmOffence o,string vno)
         {
-            db.TmOffences.Add(o);
-            var res = db.SaveChanges();
-            if (res == 1)
+            var res=db.OffenceDetails.Where(x => x.VehNo == vno).FirstOrDefault();
+            res.OffenceId = o.OffenceId;
+            db.Update(res);
+            var res1 = db.SaveChanges();
+            if (res1 == 1)
                 return 1;
             return 0;
         }
