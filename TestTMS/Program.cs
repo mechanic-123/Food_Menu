@@ -1,4 +1,6 @@
 ﻿using System;
+using TMS_CRS.DAL;
+using TMS_CRS.Models;
 
 namespace TestTMS
 {
@@ -6,7 +8,7 @@ namespace TestTMS
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }

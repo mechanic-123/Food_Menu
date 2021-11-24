@@ -8,12 +8,16 @@ using TMS_CRS.DAL;
 
 namespace TMS_CRS.DAL
 {
-    public class RTOImpl:IRTO
+    public class RTOImpl : IRTO
     {
         readonly TMSDBContext db;
+        public RTOImpl()
+        {
+            db = new TMSDBContext();
+        }
         public RTOImpl(TMSDBContext db)
         {
-            this.db=db;
+            this.db = db;
         }
 
         public int AddOwner(TmOwnerdetail o)
@@ -46,12 +50,12 @@ namespace TMS_CRS.DAL
             db.TmRegdetails.Add(r);
             var res = db.SaveChanges();
             if (res == 1)
-                return int.Parse(db.TmRegdetails.Max(x => x.AppNo));
+                return 1;
             else
                 return 0;
         }
 
-        public bool Transferdetails(TmRegdetail newval,int vehId)
+        public bool Transferdetails(TmRegdetail newval, int vehId)
         {
             var olddata = db.TmRegdetails.Where(x => x.VehId == vehId).FirstOrDefault();
             olddata.OldOwnerId = newval.OldOwnerId;
