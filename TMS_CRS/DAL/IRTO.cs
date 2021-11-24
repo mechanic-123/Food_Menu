@@ -6,7 +6,7 @@ using TMS_CRS.Models;
 
 namespace TMS_CRS.DAL
 {
-    interface IRTO
+    public interface IRTO
     {
         int AddOwner(TmOwnerdetail o);
         bool Transferdetails(TmRegdetail r,int vehId);
