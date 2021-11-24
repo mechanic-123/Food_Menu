@@ -39,9 +39,12 @@ namespace TMS_CRS.Models
 
             modelBuilder.Entity<OffenceDetail>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.OffenceNo)
+                    .HasName("PK__OFFENCE___261CF930FF8C2ABD");
 
                 entity.ToTable("OFFENCE_DETAILS");
+
+                entity.Property(e => e.OffenceNo).HasColumnName("OFFENCE_NO");
 
                 entity.Property(e => e.OffenceId).HasColumnName("OFFENCE_ID");
 
@@ -72,12 +75,12 @@ namespace TMS_CRS.Models
                     .HasColumnName("VEH_NO");
 
                 entity.HasOne(d => d.Offence)
-                    .WithMany()
+                    .WithMany(p => p.OffenceDetails)
                     .HasForeignKey(d => d.OffenceId)
                     .HasConstraintName("FK__OFFENCE_D__OFFEN__300424B4");
 
                 entity.HasOne(d => d.VehNoNavigation)
-                    .WithMany()
+                    .WithMany(p => p.OffenceDetails)
                     .HasPrincipalKey(p => p.VehNo)
                     .HasForeignKey(d => d.VehNo)
                     .HasConstraintName("FK__OFFENCE_D__VEH_N__2F10007B");

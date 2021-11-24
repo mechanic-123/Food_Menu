@@ -13,6 +13,7 @@ namespace TMS_CRS.Models
         public int? OffenceId { get; set; }
         public string ReportedBy { get; set; }
         public string Status { get; set; }
+        public int OffenceNo { get; set; }
 
         public virtual TmOffence Offence { get; set; }
         public virtual TmRegdetail VehNoNavigation { get; set; }

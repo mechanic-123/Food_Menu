@@ -28,9 +28,9 @@ namespace TMS_CRS.DAL
             return 0;
         }
         //traffic police can edit penalty status once the user pay penalty
-        public bool EditPenalty(OffenceDetail newval,string vno)
+        public bool EditPenalty(OffenceDetail newval,int ono)
         {
-            var oldval = db.OffenceDetails.Where(x => x.VehNo == vno).FirstOrDefault();
+            var oldval = db.OffenceDetails.Where(x => x.OffenceNo == ono).FirstOrDefault();
             oldval.Status = newval.Status;
             db.Update(oldval);
             var res = db.SaveChanges();
