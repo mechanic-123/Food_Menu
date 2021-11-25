@@ -7,6 +7,11 @@ namespace TMS_CRS.Models
 {
     public partial class TmRegdetail
     {
+        public TmRegdetail()
+        {
+            OffenceDetails = new HashSet<OffenceDetail>();
+        }
+
         public string AppNo { get; set; }
         public string VehNo { get; set; }
         public int? VehId { get; set; }
@@ -18,5 +23,6 @@ namespace TMS_CRS.Models
         public virtual TmOwnerdetail OldOwner { get; set; }
         public virtual TmOwnerdetail Owner { get; set; }
         public virtual TmVehicledetail Veh { get; set; }
+        public virtual ICollection<OffenceDetail> OffenceDetails { get; set; }
     }
 }
