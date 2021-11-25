@@ -24,8 +24,8 @@ namespace UI_TMS.Controllers
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:28655/api/");
-                var postdata = client.PostAsJsonAsync<TmUsermaster>("/api/User/AddUser", u);
+                client.BaseAddress = new Uri("http://localhost:28655/api");
+                var postdata = client.PostAsJsonAsync<TmUsermaster>("/User/AddUser", u);
                 postdata.Wait();
                 var res = postdata.Result;
                 if (res.IsSuccessStatusCode)
