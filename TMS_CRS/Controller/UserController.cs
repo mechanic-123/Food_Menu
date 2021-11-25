@@ -9,7 +9,7 @@ using TMS_CRS.Models;
 
 namespace TMS_CRS.Controller
 {
-    [Route("api/User")]
+    [Route("/api/User")]
     [ApiController]
     public class UserController : ControllerBase
     {
