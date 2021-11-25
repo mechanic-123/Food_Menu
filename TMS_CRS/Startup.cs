@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using TMS_CRS;
 using TMS_CRS.Models;
 using Microsoft.EntityFrameworkCore;
+using TMS_CRS.DAL;
 
 namespace TMS_CRS
 {
@@ -26,6 +27,7 @@ namespace TMS_CRS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TMSDBContext>(x => x.UseSqlServer(Configuration.GetConnectionString("Conn")));
+             services.AddTransient<IUser, UserImpl>();
             services.AddRazorPages();
         }
 
@@ -50,6 +52,7 @@ namespace TMS_CRS
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

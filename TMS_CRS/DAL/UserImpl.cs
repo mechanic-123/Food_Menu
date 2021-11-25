@@ -9,6 +9,10 @@ namespace TMS_CRS.DAL
     public class UserImpl : IUser
     {
         readonly TMSDBContext db;
+        public UserImpl()
+        {
+            db = new TMSDBContext();
+        }
         public UserImpl(TMSDBContext db)
         {
             this.db = db;
