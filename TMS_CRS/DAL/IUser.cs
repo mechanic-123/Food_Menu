@@ -9,6 +9,6 @@ namespace TMS_CRS.DAL
 {
     public interface IUser
     {
-        TmUsermaster AddUser(TmUsermaster user);
+        bool AddUser(TmUsermaster user);
     }
 }
