@@ -46,7 +46,7 @@ namespace UI_TMS
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=ConsumeRTO}/{action=AddOwner}/{id?}");
             });
         }
     }

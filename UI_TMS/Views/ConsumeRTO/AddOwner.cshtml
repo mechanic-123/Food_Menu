@@ -1,0 +1,60 @@
+﻿@model TMS_CRS.Models.TmOwnerdetail;
+<form method="post">
+    @Html.ValidationSummary(true)
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <td>@Html.TextAreaFor(x => x.Fname)</td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td>@Html.TextAreaFor(x => x.Lname)</td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td>@Html.TextBoxFor(x => x.Dateofbirth, new { type = "date" })</td>
+        </tr>
+        <tr>
+            <th>LandLine Number</th>
+            <td>@Html.EditorFor(x => x.LandlineNo)</td>
+        </tr>
+        <tr>
+            <th>Mobile Number</th>
+            <td>@Html.EditorFor(x => x.MobileNo)</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>
+                @Html.RadioButtonFor(x => x.Gender, "Male")Male
+                @Html.RadioButtonFor(x => x.Gender, "Female")Female
+            </td>
+        </tr>
+        <tr>
+            <th>Temporary Address</th>
+            <td>@Html.TextAreaFor(x => x.TempAddr)</td>
+        </tr>
+        <tr>
+            <th>Permanent Address</th>
+            <td>@Html.TextAreaFor(x => x.PermAddr)</td>
+        </tr>
+        <tr>
+            <th>Pincode</th>
+            <td>@Html.EditorFor(x => x.Pincode)</td>
+        </tr>
+        <tr>
+            <th>Occupation</th>
+            <td>@Html.TextBoxFor(x => x.Occupation)</td>
+        </tr>
+        <tr>
+            <th>PanCard Number</th>
+            <td>@Html.TextBoxFor(x => x.PancardNo)</td>
+        </tr>
+        <tr>
+            <th>Address Proof Name</th>
+            <td>@Html.TextBoxFor(x => x.AddProofName)</td>
+        </tr>
+        <tr>
+            <th><input type="submit" value="Submit"/></th>
+        </tr>
+    </table>
+</form>
