@@ -13,13 +13,13 @@ namespace TMS_CRS.DAL
         {
             this.db = db;
         }
-        public TmUsermaster AddUser(TmUsermaster user)
+        public bool AddUser(TmUsermaster user)
         {
             db.TmUsermasters.Add(user);
             var res = db.SaveChanges();
             if (res == 1)
-                return user;
-            return null;
+                return true;
+            return false;
         }
     }
 }
