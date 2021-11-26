@@ -1,0 +1,40 @@
+﻿@model TMS_CRS.Models.OffenceDetail
+@using(Html.BeginForm())
+            {
+    <table border="1">
+    <tr>
+        <td> Enter Vehicle No</td>
+        <td>@Html.TextBoxFor(x=>x.VehNo)</td>
+      </tr>
+    
+    <tr>
+         <td> Place</td>
+         <td>@Html.TextBoxFor(x=>x.Place)</td>
+    </tr>
+        <tr>
+            <td> Offence Id</td>
+            <td>@Html.DropDownList("ddloid",ViewData["data"] as SelectList)</td>
+        </tr>
+        <tr>
+            <td> Reported By</td>
+            <td>@Html.TextBoxFor(x=>x.ReportedBy)</td>
+        </tr>
+        <tr>
+            <td> Pentaly status</td>
+            <td>@Html.TextBoxFor(x=>x.Status)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add"/></td>
+        </tr>
+    </table>
+
+    
+            }
+
+@Html.ValidationSummary(true)
+<br/>
+<br/>
+<br/>
+
+
+<td><button type="button" onclick="location.href='@Url.Action("HomePage")'">Return To HomePage</button></td>

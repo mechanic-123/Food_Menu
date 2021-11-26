@@ -10,7 +10,9 @@ namespace TMS_CRS.DAL
     {
         int  Addpenalty(OffenceDetail o);
         bool EditPenalty( OffenceDetail newval,int ono);
-        OffenceDetail GenerateReport(string vno);
+        List<OffenceDetail> GenerateReport(string vno);
+        List<OffenceDetail> Showalloffence();
+        OffenceDetail GetoffencebyOffno(int ono);
     }
 }
 //Traffic police has three funcationality that is add,edit and generate report
