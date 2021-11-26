@@ -1,0 +1,40 @@
+﻿@model List<TMS_CRS.Models.OffenceDetail>
+<form method="post">
+   
+   
+    <div>Enter Vehicle No:@Html.TextBox("vno")</div>
+    
+    <br/>
+    <div><input type="submit" value="Generate Report" name="vno"/></div>
+    <br/>
+    <br/>
+    @if(Model!=null)
+            {
+               
+                <table border="1">
+                    <tr>
+                        <th>Vehicle No</th>
+                        <th>Offence ID</th>
+                        <th>Place</th>
+                        <th>Reported By</th>
+                        <th>Status</th>
+                    </tr>
+                    @foreach(var m in Model)
+                        {
+                           <tr>
+                                <td>@m.VehNo</td>
+                                <td>@m.OffenceId</td>
+                                <td>@m.Place</td>
+                                <td>@m.ReportedBy</td>
+                                <td>@m.Status</td>
+                           </tr>
+                         }
+                </table>
+            }
+
+</form>
+
+<br/>
+<br/>
+<br/>
+<td><button type="button" onclick="location.href='@Url.Action("HomePage")'">Return To HomePage</button></td>

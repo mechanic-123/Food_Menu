@@ -19,9 +19,9 @@ namespace TMS_CRS.DAL
             this.db = db;
         }
         //traffic police can add penalty 
-        public int  Addpenalty(OffenceDetail o)
+        public int  Addpenalty(OffenceDetail od)
         {
-            db.OffenceDetails.Add(o);
+            db.OffenceDetails.Add(od);
             var res = db.SaveChanges();
             if (res == 1)
                 return 1;
@@ -38,11 +38,27 @@ namespace TMS_CRS.DAL
                 return true;
             return false;
         }
-        //traffic police can generate a report by using vehno
-        public OffenceDetail GenerateReport(string vno)
+
+        public OffenceDetail GetoffencebyOffno(int ono)
         {
-            return db.OffenceDetails.Where(x => x.VehNo == vno).FirstOrDefault();
-                
+            return db.OffenceDetails.Where(x=>x.OffenceNo==ono).FirstOrDefault();
+        }
+
+        public List<OffenceDetail> Showalloffence()
+        {
+            return db.OffenceDetails.ToList();
+        }
+
+        //traffic police can generate a report by using vehno
+        //public offencedetail generatereport(string vno)
+        //{
+        //    return db.offencedetails.where(x => x.vehno == vno).firstordefault();
+
+        //}
+
+        List<OffenceDetail> ITrafficPolice.GenerateReport(string vno)
+        {
+            return db.OffenceDetails.Where(x => x.VehNo == vno).ToList();
         }
     }
 }

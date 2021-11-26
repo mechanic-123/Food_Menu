@@ -35,9 +35,22 @@ namespace TMS_CRS.Controller
         }
         [HttpGet]
         [Route("/api/TrafficPolice/GenerateReport/{vno}")]
-        public OffenceDetail Get(string vno)
+        public List<OffenceDetail> Get(string vno)
         {
             return T.GenerateReport(vno);
+        }
+        [HttpGet]
+        [Route("/api/TrafficPolice/Showalloffence")]
+        public List<OffenceDetail> Get()
+
+        {
+            return T.Showalloffence();
+        }
+        [HttpGet]
+        [Route("/api/TrafficPolice/Getoffencebyoffno/{ono}")]
+        public OffenceDetail Get(int ono)
+        {
+            return T.GetoffencebyOffno(ono);
         }
              
     }

@@ -1,0 +1,38 @@
+﻿@model TMS_CRS.Models.OffenceDetail
+@using(Html.BeginForm())
+            {
+                <table border="1">
+                            <tr>
+                                <td>Offence No</td>
+                                <td>@Html.TextBoxFor(x => x.OffenceNo, new { @readonly = true })</td>
+                            </tr>
+                            <tr>
+                                <td>Vehicle no</td>
+                                <td>@Html.TextBoxFor(x => x.VehNo, new { @readonly = true })</td>
+                            </tr>
+    
+                            <tr>
+                                <td>Offence id</td>
+                                <td>@Html.TextBoxFor(x=>x.OffenceId,new { @readonly = true })</td>
+                            </tr>
+                          <tr>
+                              <td>Reported by</td>
+                              <td>@Html.TextBoxFor(x=>x.ReportedBy,new { @readonly = true })</td>
+                          </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>@Html.TextBoxFor(x=>x.Status)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Edit"/></td>
+                    </tr>
+                </table>
+            }
+
+@Html.ValidationSummary(true)
+
+
+<br/>
+<br/>
+<br/>
+<td><button type="button" onclick="location.href='@Url.Action("HomePage")'">Return To HomePage</button></td>

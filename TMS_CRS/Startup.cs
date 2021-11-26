@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TMS_CRS;
 using TMS_CRS.Models;
+using TMS_CRS.DAL;
 using Microsoft.EntityFrameworkCore;
 using TMS_CRS.DAL;
 
@@ -27,6 +28,7 @@ namespace TMS_CRS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TMSDBContext>(x => x.UseSqlServer(Configuration.GetConnectionString("Conn")));
+            services.AddTransient<ITrafficPolice, TrafficPoliceImpl>();
              services.AddTransient<IRTO, RTOImpl>();
              services.AddTransient<ITrafficPolice, TrafficPoliceImpl>();
              services.AddTransient<IUser, UserImpl>();
