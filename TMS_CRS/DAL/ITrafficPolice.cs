@@ -8,8 +8,8 @@ namespace TMS_CRS.DAL
 {
     public interface ITrafficPolice
     {
-        int  Addpenalty(OffenceDetail o);
-        bool EditPenalty( OffenceDetail newval,int ono);
+        int Addpenalty(OffenceDetail o);
+        bool EditPenalty(OffenceDetail newval, int ono);
         List<OffenceDetail> GenerateReport(string vno);
         List<OffenceDetail> Showalloffence();
         OffenceDetail GetoffencebyOffno(int ono);

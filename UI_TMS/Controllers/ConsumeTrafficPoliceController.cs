@@ -29,16 +29,16 @@ namespace UI_TMS.Controllers
             ViewData["data"] = new SelectList(db.TmOffences, "OffenceId", "OffenceType");
             od.Time = DateTime.Now;
             od.OffenceId = Convert.ToInt32(Request.Form["ddloid"]);
-           
-            using(var client=new HttpClient())
+
+            using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12850");
                 var postdata = client.PostAsJsonAsync<OffenceDetail>("/api/TrafficPolice/Addpenalty", od);
                 postdata.Wait();
                 var result = postdata.Result;
-                if(result.IsSuccessStatusCode)
+                if (result.IsSuccessStatusCode)
                 {
-                    ModelState.AddModelError("", "New offence added To The vehicle No"+od.VehNo);
+                    ModelState.AddModelError("", "New offence added To The vehicle No" + od.VehNo);
                 }
                 else
                     ModelState.AddModelError("", result.ToString());
@@ -49,13 +49,13 @@ namespace UI_TMS.Controllers
         public IActionResult EditOffence(int ono)
         {
             OffenceDetail od = new OffenceDetail();
-            using(var client=new HttpClient())
+            using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12850");
                 var resp = client.GetAsync("/api/TrafficPolice/Getoffencebyoffno/" + ono);
                 resp.Wait();
                 var result = resp.Result;
-                if(result.IsSuccessStatusCode)
+                if (result.IsSuccessStatusCode)
                 {
                     var op = result.Content.ReadAsAsync<OffenceDetail>();
                     op.Wait();
@@ -66,18 +66,18 @@ namespace UI_TMS.Controllers
             return View(od);
         }
         [HttpPost]
-        public IActionResult EditOffence(int ono,OffenceDetail od)
+        public IActionResult EditOffence(int ono, OffenceDetail od)
         {
             ono = od.OffenceNo;
-            using(var client =new HttpClient())
+            using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12850");
                 var res = client.PutAsJsonAsync("/api/TrafficPolice/Editpentaly/" + ono, od);
                 res.Wait();
                 var op = res.Result;
-                if(op.IsSuccessStatusCode)
+                if (op.IsSuccessStatusCode)
                 {
-                    ModelState.AddModelError("", "The penalty has been cleared by the vehicle no"+od.VehNo);
+                    ModelState.AddModelError("", "The penalty has been cleared by the vehicle no" + od.VehNo);
                 }
             }
             return View();
@@ -86,13 +86,13 @@ namespace UI_TMS.Controllers
         public IActionResult Showalloffence()
         {
             List<OffenceDetail> offlist = new List<OffenceDetail>();
-            using(var client=new HttpClient())
+            using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12850");
                 var responedata = client.GetAsync("/api/TrafficPolice/Showalloffence");
                 responedata.Wait();
                 var result = responedata.Result;
-                if(result.IsSuccessStatusCode)
+                if (result.IsSuccessStatusCode)
                 {
                     var readresult = result.Content.ReadAsAsync<List<OffenceDetail>>();
                     readresult.Wait();
@@ -113,14 +113,14 @@ namespace UI_TMS.Controllers
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12850");
-                var responedata = client.GetAsync("/api/TrafficPolice/GenerateReport/"+vno);
+                var responedata = client.GetAsync("/api/TrafficPolice/GenerateReport/" + vno);
                 responedata.Wait();
                 var result = responedata.Result;
                 if (result.IsSuccessStatusCode)
                 {
                     var readresult = result.Content.ReadAsAsync<List<OffenceDetail>>();
                     readresult.Wait();
-                    offlist = readresult.Result;   
+                    offlist = readresult.Result;
                 }
             }
             return View(offlist);
@@ -128,5 +128,5 @@ namespace UI_TMS.Controllers
     }
 
 
-    }
+}
 

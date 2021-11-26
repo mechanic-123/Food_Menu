@@ -7,9 +7,9 @@ using TMS_CRS.Models;
 
 namespace TMS_CRS.DAL
 {
-    public class TrafficPoliceImpl:ITrafficPolice
+    public class TrafficPoliceImpl : ITrafficPolice
     {
-        readonly TMSDBContext db; 
+        readonly TMSDBContext db;
         public TrafficPoliceImpl()
         {
             db = new TMSDBContext();
@@ -19,7 +19,7 @@ namespace TMS_CRS.DAL
             this.db = db;
         }
         //traffic police can add penalty 
-        public int  Addpenalty(OffenceDetail od)
+        public int Addpenalty(OffenceDetail od)
         {
             db.OffenceDetails.Add(od);
             var res = db.SaveChanges();
@@ -28,7 +28,7 @@ namespace TMS_CRS.DAL
             return 0;
         }
         //traffic police can edit penalty status once the user pay penalty
-        public bool EditPenalty(OffenceDetail newval,int ono)
+        public bool EditPenalty(OffenceDetail newval, int ono)
         {
             var oldval = db.OffenceDetails.Where(x => x.OffenceNo == ono).FirstOrDefault();
             oldval.Status = newval.Status;
@@ -41,7 +41,7 @@ namespace TMS_CRS.DAL
 
         public OffenceDetail GetoffencebyOffno(int ono)
         {
-            return db.OffenceDetails.Where(x=>x.OffenceNo==ono).FirstOrDefault();
+            return db.OffenceDetails.Where(x => x.OffenceNo == ono).FirstOrDefault();
         }
 
         public List<OffenceDetail> Showalloffence()

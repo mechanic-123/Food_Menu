@@ -16,7 +16,7 @@ namespace TMS_CRS.Controller
     {
         readonly ITrafficPolice T;
         readonly TMSDBContext db;
-        public TrafficPoliceController(ITrafficPolice T,TMSDBContext db)
+        public TrafficPoliceController(ITrafficPolice T, TMSDBContext db)
         {
             this.T = T;
             this.db = db;
@@ -25,11 +25,11 @@ namespace TMS_CRS.Controller
         [Route("/api/TrafficPolice/Addpenalty")]
         public int Post(OffenceDetail od)
         {
-            return  T.Addpenalty(od);
+            return T.Addpenalty(od);
         }
         [HttpPut]
         [Route("/api/TrafficPolice/Editpentaly/{ono}")]
-        public bool Put(OffenceDetail newval,int ono)
+        public bool Put(OffenceDetail newval, int ono)
         {
             return T.EditPenalty(newval, ono);
         }
@@ -52,6 +52,6 @@ namespace TMS_CRS.Controller
         {
             return T.GetoffencebyOffno(ono);
         }
-             
+
     }
 }

@@ -28,17 +28,17 @@ namespace TestTMS
                  Console.WriteLine("Offence had be cleared");*/
 
 
-          /*  var res = police.GenerateReport("SHP002");
-            if (res != null)
-            {
-                Console.WriteLine("Offence No.:" + res.OffenceNo);
-                Console.WriteLine("Vehicle No.:" + res.VehNo);
-                Console.WriteLine("Offence Id.:" + res.OffenceId);
-                Console.WriteLine("Place      :" + res.Place);
-                Console.WriteLine("Time       :" + res.Time);
-                Console.WriteLine("Reported By:" + res.ReportedBy);
-                Console.WriteLine("Status     :" + res.Status);
-            }*/
+            /*  var res = police.GenerateReport("SHP002");
+              if (res != null)
+              {
+                  Console.WriteLine("Offence No.:" + res.OffenceNo);
+                  Console.WriteLine("Vehicle No.:" + res.VehNo);
+                  Console.WriteLine("Offence Id.:" + res.OffenceId);
+                  Console.WriteLine("Place      :" + res.Place);
+                  Console.WriteLine("Time       :" + res.Time);
+                  Console.WriteLine("Reported By:" + res.ReportedBy);
+                  Console.WriteLine("Status     :" + res.Status);
+              }*/
             TmUsermaster user = new TmUsermaster
             {
                 Username = "R",
@@ -47,9 +47,9 @@ namespace TestTMS
             };
             IUser u = new UserImpl();
             var res = u.AddUser(user);
-            if(res)
+            if (res)
                 Console.WriteLine("User Added");
 
         }
-    }      
+    }
 }
