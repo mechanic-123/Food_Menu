@@ -1,0 +1,49 @@
+﻿@model TMS_CRS.Models.TmVehicledetail;
+<form method="post">
+    @Html.ValidationSummary(true)
+    <table>
+        <tr>
+            <th>Vehicle Type</th>
+            <td>@Html.TextBoxFor(x => x.VehType)</td>
+        </tr>
+        <tr>
+            <th>Engine Number</th>
+            <td>@Html.TextBoxFor(x => x.EngineNo)</td>
+        </tr>
+        <tr>
+            <th>Model Number</th>
+            <td>@Html.TextBoxFor(x => x.ModelNo)</td>
+        </tr>
+        <tr>
+            <th>Vehicle Name</th>
+            <td>@Html.TextBoxFor(x => x.VehName)</td>
+        </tr>
+        <tr>
+            <th>Vehicle Color</th>
+            <td>@Html.TextBoxFor(x => x.VehColor)</td>
+        </tr>
+        <tr>
+            <th>Manufacturer Name</th>
+            <td>@Html.TextBoxFor(x => x.ManufacturerName)</td>
+        </tr>
+        <tr>
+            <th>Date of Manufucturing</th>
+            <td>@Html.TextBoxFor(x => x.DateOfManufacture, new { type = "date" })</td>
+        </tr>
+        <tr>
+            <th>Number of Cylinders</th>
+            <td>@Html.EditorFor(x => x.ManufacturerName)</td>
+        </tr>
+        <tr>
+            <th>Cubic Capacity</th>
+            <td>@Html.EditorFor(x => x.CuibicCapacity)</td>
+        </tr>
+        <tr>
+            <th>Fuel Used</th>
+            <td>@Html.TextBoxFor(x => x.FuelUsed)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
