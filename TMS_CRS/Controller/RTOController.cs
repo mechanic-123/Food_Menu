@@ -9,31 +9,29 @@ using TMS_CRS.Models;
 
 namespace TMS_CRS.Controller
 {
-    [Route("/api/RTO")]
+    [Route("api/RTO")]
     [ApiController]
     public class RTOController : ControllerBase
     {
         readonly IRTO r;
-        readonly TMSDBContext db;
-        public RTOController(IRTO r, TMSDBContext db)
+        public RTOController(IRTO r)
         {
             this.r = r;
-            this.db = db;
         }
         [HttpPost]
-        [Route("api/RTO/AddUser")]
+        [Route("/api/RTO/AddUser")]
         public int Post(TmOwnerdetail o)
         {
             return r.AddOwner(o);
         }
         [HttpPost]
-        [Route("api/RTO/AddVehicle")]
+        [Route("/api/RTO/AddVehicle")]
         public int Post(TmVehicledetail v)
         {
             return r.AddVechile(v);
         }
         [HttpPost]
-        [Route("api/RTO/Register")]
+        [Route("/api/RTO/Register")]
         public int Post(TmRegdetail reg)
         {
             return r.Registration(reg);

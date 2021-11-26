@@ -21,7 +21,7 @@ namespace TMS_CRS.Controller
             this.db = db;
         }
         [HttpPost]
-        [Route("/api/User/AddUser")]
+        [Route("api/User/AddUser")]
         public bool Post(TmUsermaster u)
         {
             return user.AddUser(u);
