@@ -46,7 +46,7 @@ namespace UI_TMS
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=ConsumeTrafficPolice}/{action=HomePage}/{id?}");
+                    pattern: "{controller=ConsumeUser}/{action=UserLogin}/{id?}");
             });
         }
     }
