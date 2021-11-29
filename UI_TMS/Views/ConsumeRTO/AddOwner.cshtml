@@ -1,7 +1,9 @@
-﻿@model TMS_CRS.Models.TmOwnerdetail;
+﻿<body style="background-color:antiquewhite">
+@model TMS_CRS.Models.TmOwnerdetail;
 <form method="post">
     @Html.ValidationSummary(true)
-    <table>
+    <marquee><h2 style="color:maroon">Welcome to User Registration Page</h2></marquee>
+    <table border="3" style="margin-left:auto;margin-right:auto;">
         <tr>
             <th>First Name</th>
             <td>@Html.TextAreaFor(x => x.Fname)</td>
@@ -54,7 +56,8 @@
             <td>@Html.TextBoxFor(x => x.AddProofName)</td>
         </tr>
         <tr>
-            <th><input type="submit" value="Submit"/></th>
+            <th colspan="2"style="text-align:center" ><input type="submit" value="Submit" style="background-color:brown"/></th>
         </tr>
     </table>
 </form>
+</body>

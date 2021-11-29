@@ -1,6 +1,6 @@
-﻿<form>
+﻿<form method="post">
     @Html.ActionLink("Register User", "AddUser")
-    <table border="0">
+    <table border="0" style="margin-left:auto;margin-right:auto;margin-top:10%">
         <tr>
             <td>UserName:</td>
             <td><input type="text" name="txtuser" /></td>
@@ -11,4 +11,5 @@
         </tr>
     </table>
     <input type="submit" value="Log in" />
+    @Html.ValidationSummary(true)
 </form>

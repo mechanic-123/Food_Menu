@@ -1,0 +1,96 @@
+﻿
+<body style="background-color:black">
+    <style>
+        .container {
+            height: 100%;
+            width: 100%;
+            
+        }
+
+
+            .container .btn {
+                position: absolute;
+                top: 15%;
+                left: 90%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: rebeccapurple;
+                color: white;
+                font-size: 16px;
+                padding: 12px 24px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                text-align: right;
+            }
+
+                .container .btn:hover {
+                    background-color: goldenrod;
+                }
+
+            .container .btn1 {
+                position: absolute;
+                top: 25%;
+                left: 90%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: rebeccapurple;
+                color: white;
+                font-size: 16px;
+                padding: 12px 24px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                text-align: right;
+            }
+
+                .container .btn1:hover {
+                    background-color: goldenrod;
+                }
+
+            .container .btn2 {
+                position: absolute;
+                top: 35%;
+                left: 90%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: rebeccapurple;
+                color: white;
+                font-size: 16px;
+                padding: 12px 24px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                text-align: right;
+            }
+
+                .container .btn2:hover {
+                    background-color: goldenrod;
+                }
+                .contain{
+                    text-align:center;
+                }
+    </style>
+    <div class="container">
+        
+        <h2 style="color:red;text-align:center"><img src="~/Image/759158.jpg" height="50px" width="50px" />TRAFFIC MANAGEMENT SYSTEM</h2>
+        <img src="~/Image/roadpage.jpeg" height="100%" width="100%" style="opacity:0.4;filter:alpha(opacity=40)" />
+
+        <input type="button" class="btn" value="RTO OFFICER" onclick="location.href='@Url.Action("RTOHome", "ConsumeRTO")'" />
+        <input type="button" class="btn1" value="TRAFFIC POLICE" onclick="location.href='@Url.Action("HomePage", "ConsumeTrafficPolice")'" />
+        <input type="button" class="btn2" value="USER LOGIN" onclick="location.href='@Url.Action("AddUser", "Consumeuser")'" />
+
+    </div>
+    <section style="background-color:darkslateblue">
+        <div class="contain">
+            <div class="left_copyright" style="text-align:left"> © Copyright  2021. All Right Reserved.</div>
+            <ul class="right_copyright">
+                <i class="fa fa-building" ></i> Control Room : 100
+                <i class="fa fa-ambulance"></i> Ambulance : 108
+                <i class="fa fa-female"></i>Women Helpline : 1090
+            </ul>
+        </div>
+    </section>
+
+
+</body>

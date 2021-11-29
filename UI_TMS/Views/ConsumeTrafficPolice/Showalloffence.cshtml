@@ -1,29 +1,31 @@
-﻿@model List<TMS_CRS.Models.OffenceDetail>
-<table border="1">
-    <tr>
-        <th>Offence No</th>
-        <th>vehicle No</th>
-        <th>Offence id</th>
-        <th>Place</th>
-        <th>Reported by</th>
-        <th>Status</th>
-        <th>Edit Pentaly</th>
-    </tr>
-    @foreach(var m in Model)
+﻿<body style="background-color:blanchedalmond">
+    @model List<TMS_CRS.Models.OffenceDetail>
+        <marquee><h1 style="color:saddlebrown">Welcome To Show Offence Page</h1></marquee>
+        <table border="4" style="margin-left:auto;margin-right:auto;margin-top:10%">
+            <tr>
+                <th>Offence No</th>
+                <th>vehicle No</th>
+                <th>Offence id</th>
+                <th>Place</th>
+                <th>Reported by</th>
+                <th>Status</th>
+                <th>Edit Pentaly</th>
+            </tr>
+            @foreach (var m in Model)
             {
-        <tr>
-            <td>@m.OffenceNo</td>
-            <td>@m.VehNo</td>
-            <td>@m.OffenceId</td>
-            <td>@m.Place</td>
-            <td>@m.ReportedBy</td>
-            <td>@m.Status</td>
-            <td>@Html.ActionLink("Edit"+m.OffenceNo, "EditOffence", "ConsumeTrafficPolice",new { ono= m.OffenceNo },null)</td>
-        </tr>
+                <tr>
+                    <td>@m.OffenceNo</td>
+                    <td>@m.VehNo</td>
+                    <td>@m.OffenceId</td>
+                    <td>@m.Place</td>
+                    <td>@m.ReportedBy</td>
+                    <td>@m.Status</td>
+                    <td>@Html.ActionLink("Edit" + m.OffenceNo, "EditOffence", "ConsumeTrafficPolice", new { ono = m.OffenceNo }, null)</td>
+                </tr>
             }
-</table>
-
+        </table>
+    </body>
 <br/>
 <br/>
 <br/>
-<td><button type="button" onclick="location.href='@Url.Action("HomePage")'">Return To HomePage</button></td>
+<td><button type="button" onclick="location.href='@Url.Action("HomePage")'" style="background-color:deepskyblue">Return To HomePage</button></td>
