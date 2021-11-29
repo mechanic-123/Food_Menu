@@ -2,7 +2,7 @@
     <form method="post">
         <marquee><h1 style="color:saddlebrown">Welcome To User Login  Page</h1></marquee>
         <button style="background-color:deepskyblue;float:right;">@Html.ActionLink("Register User", "AddUser")</button>
-        <table  style="margin-left:auto;margin-right:auto;margin-top:10%">
+        <table style="margin-left:auto;margin-right:auto;margin-top:10%">
             <tr>
                 <td>UserName:</td>
                 <td><input type="text" name="txtuser" /></td>
@@ -21,4 +21,9 @@
         </table>
         @Html.ValidationSummary(true)
     </form>
+    <div>
+        <button style="background-color:white;">
+            @Html.ActionLink("Back", "MainHome", "ConsumeRTO")
+        </button>
+    </div>
 </body>
