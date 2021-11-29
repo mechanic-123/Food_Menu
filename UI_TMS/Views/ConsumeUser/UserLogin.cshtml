@@ -1,24 +1,17 @@
-﻿<body style="background-color:antiquewhite">
+﻿<link rel="stylesheet" href="~/css/UserLogin.css"/>
+<div class="login-box">
+    <h2>Login</h2>
     <form method="post">
-        <marquee><h1 style="color:saddlebrown">Welcome To User Login  Page</h1></marquee>
-        <button style="background-color:deepskyblue;float:right;">@Html.ActionLink("Register User", "AddUser")</button>
-        <table  style="margin-left:auto;margin-right:auto;margin-top:10%">
-            <tr>
-                <td>UserName:</td>
-                <td><input type="text" name="txtuser" /></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type="password" name="txtpass" /></td>
-            </tr>
-
-
-            <tr>
-                <td>
-                    <input type="submit" value="Log in" style="background-color:deepskyblue" />
-                </td>
-            </tr>
-        </table>
+        <div class="user-box">
+            <input type="text" name="txtuser" required="">
+            <label>Username</label>
+        </div>
+        <div class="user-box">
+            <input type="password" name="txtpass" required="">
+            <label>Password</label>
+        </div>
+        <input type="submit" value="Log in" style="background-color: #04AA6D; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%;" />
+        @Html.ActionLink("Register User", "AddUser")
         @Html.ValidationSummary(true)
     </form>
-</body>
+</div>
