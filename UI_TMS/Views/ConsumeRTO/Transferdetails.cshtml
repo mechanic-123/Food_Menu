@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model TMS_CRS.Models.TmRegdetail
+<form method="post">
+    <table>
+        <tr>
+            <th>Old Owner ID</th>
+            <td>@Html.EditorFor(x => x.OldOwnerId)</td>
+        </tr>
+        <tr>
+            <th>Owner ID</th>
+            <td>@Html.EditorFor(x => x.OwnerId)</td>
+        </tr>
+        <tr>
+            <th>Old Owner</th>
+            <td>@Html.EditorFor(x => x.OldOwner)</td>
+        </tr>
+        <tr>
+            <th>Owner</th>
+            <td>@Html.EditorFor(x => x.Owner)</td>
+        </tr>
+        <tr>
+            <th><input type="submit" value="Submit"/></th>
+        </tr>
+    </table>
+</form>

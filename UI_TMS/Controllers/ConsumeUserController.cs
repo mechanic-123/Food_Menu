@@ -29,11 +29,11 @@ namespace UI_TMS.Controllers
             ModelState.AddModelError("", role);
             if (role != null)
             {
-                if (Convert.ToString(role) == "RTO Officer")
+                if (Convert.ToString(role) == "RTO_Officer")
                     return RedirectToAction("RTOHome", "ConsumeRTO");
-                if (Convert.ToString(role) == "Traffic Police")
+                if (Convert.ToString(role) == "Traffic_Police")
                     return RedirectToAction("HomePage", "ConsumeTrafficPolice");
-                if (Convert.ToString(role) == "Driver")
+                if (Convert.ToString(role) == "Vehicle_Owner")
                     return RedirectToAction("", "");
             }
             else
