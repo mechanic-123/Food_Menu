@@ -1,9 +1,10 @@
-﻿<body style="background-color:antiquewhite">
+﻿<link rel="stylesheet" href="~/css/style.css" />
+<body style="background-color:antiquewhite">
 @model TMS_CRS.Models.TmVehicledetail;
     <form method="post">
         <marquee><h2 style="color:maroon">Welcome to Vehicle Registration Page</h2></marquee>
         @Html.ValidationSummary(true)
-        <table border="1" style="margin-left:auto;margin-right:auto;margin-top:10%">
+        <table style="margin-left:auto;margin-right:auto;margin-top:10%">
             <tr>
                 <th>Vehicle Type</th>
                 <td>@Html.TextBoxFor(x => x.VehType)</td>
@@ -49,7 +50,7 @@
             </tr>
         </table>
         <div>
-            <button style="background-color:white;">
+            <button>
                 @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
             </button>
         </div>

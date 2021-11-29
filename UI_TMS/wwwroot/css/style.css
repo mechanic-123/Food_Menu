@@ -1,0 +1,16 @@
+﻿th {
+    padding: 1em;
+}
+
+input, textarea {
+    border-radius: 10px;
+}
+
+a:link {
+    color: green;
+    text-decoration: none;
+}
+button {
+    background-color:white; 
+    border-radius:10px;
+}

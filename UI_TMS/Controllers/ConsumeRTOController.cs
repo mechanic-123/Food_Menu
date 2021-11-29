@@ -101,6 +101,25 @@ namespace UI_TMS.Controllers
             }
             return View();
         }
+        public IActionResult GetAll()
+        {
+            List<TmRegdetail> custlst = new List<TmRegdetail>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:12850/api/");
+                var responsedata = client.GetAsync("RTO/GetAll");
+                responsedata.Wait();
+
+                var result = responsedata.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readresult = result.Content.ReadAsAsync<List<TmRegdetail>>();
+                    readresult.Wait();
+                    custlst = readresult.Result;
+                }
+            }
+            return View(custlst);
+        }
         public IActionResult Transferdetails(int vehId)
         {
             TmRegdetail reg = new TmRegdetail();
@@ -125,17 +144,20 @@ namespace UI_TMS.Controllers
         {
             try
             {
+                //id = c.CustomerId;
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:12850/api/RTO/");
-                    var postdata = client.GetAsync("Transferdetails/" + vehId);
-                    postdata.Wait();
-                    var result = postdata.Result;
+                    client.BaseAddress = new Uri("http://localhost:12850/api/");
+                    var responsedata = client.PutAsJsonAsync("RTO/Transferdetails/" + vehId, r);
+                    responsedata.Wait();
+
+                    var result = responsedata.Result;
                     if (result.IsSuccessStatusCode)
                     {
-                        ModelState.AddModelError("", "Record Transfered");
+                        return RedirectToAction("RTOHome");
                     }
                 }
+                return View();
             }
             catch (Exception ex)
             {
@@ -152,7 +174,7 @@ namespace UI_TMS.Controllers
         public IActionResult GenerateReport(int ID)
         {
             ID = Convert.ToInt32(Request.Form["id"]);
-            List<TmOwnerdetail> p = new List<TmOwnerdetail>();
+            List<TmRegdetail> p = new List<TmRegdetail>();
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12850/api/");
@@ -162,7 +184,7 @@ namespace UI_TMS.Controllers
                 var result = responsedata.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    var readresult = result.Content.ReadAsAsync<List<TmOwnerdetail>>();
+                    var readresult = result.Content.ReadAsAsync<List<TmRegdetail>>();
                     readresult.Wait();
                     p = readresult.Result;
                 }

@@ -12,8 +12,8 @@ namespace TMS_CRS.DAL
         bool Transferdetails(TmRegdetail r, int vehId);
         int AddVechile(TmVehicledetail v);
         int Registration(TmRegdetail r);
-        
-        List<TmOwnerdetail> GenerateReport(int id);
+        List<TmRegdetail> GetAll();
+        List<TmRegdetail> GenerateReport(int id);
 
 
 

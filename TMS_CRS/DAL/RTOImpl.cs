@@ -39,9 +39,14 @@ namespace TMS_CRS.DAL
             else
                 return 0;
         }
-        public List<TmOwnerdetail> GenerateReport(int id)
+        public List<TmRegdetail> GenerateReport(int id)
         {
-            return db.TmOwnerdetails.Where(x => x.OwnerId == id).ToList();
+            return db.TmRegdetails.Where(x => x.OwnerId == id).ToList();
+        }
+
+        public List<TmRegdetail> GetAll()
+        {
+            return db.TmRegdetails.ToList();
         }
 
         public int Registration(TmRegdetail r)
