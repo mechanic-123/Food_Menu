@@ -21,6 +21,7 @@ namespace UI_TMS.Controllers
         {
             TMSDBContext db = new TMSDBContext();
             uname = Request.Form["txtuser"];
+            
             password = Request.Form["txtpass"];
             var role = (from u in db.TmUsermasters
                        where (u.Username == uname && u.Password == password)
@@ -28,11 +29,11 @@ namespace UI_TMS.Controllers
             ModelState.AddModelError("", role);
             if (role != null)
             {
-                if (Convert.ToString(role) == "RTO Officer")
+                if (Convert.ToString(role) == "RTO_Officer")
                     return RedirectToAction("RTOHome", "ConsumeRTO");
-                if (Convert.ToString(role) == "Traffic Police")
+                if (Convert.ToString(role) == "Traffic_Police")
                     return RedirectToAction("HomePage", "ConsumeTrafficPolice");
-                if (Convert.ToString(role) == "Driver")
+                if (Convert.ToString(role) == "Vehicle_Owner")
                     return RedirectToAction("", "");
             }
             else
@@ -47,16 +48,24 @@ namespace UI_TMS.Controllers
         [HttpPost]
         public IActionResult AddUser(TmUsermaster u)
         {
-            using (var client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri("http://localhost:12850/api/");
-                var postdata = client.PostAsJsonAsync<TmUsermaster>("User/AddUser", u);
-                postdata.Wait();
-                var res = postdata.Result;
-                if (res.IsSuccessStatusCode)
-                    ModelState.AddModelError("", "New User Added");
-                else
-                    ModelState.AddModelError("", res.ToString());
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://localhost:12850/api/");
+                    var postdata = client.PostAsJsonAsync<TmUsermaster>("User/AddUser", u);
+                    postdata.Wait();
+                    var res = postdata.Result;
+                    if (res.IsSuccessStatusCode)
+                        ModelState.AddModelError("", "New User Added");
+                }
+            }
+            catch (AggregateException err)
+            {
+                foreach (var errInner in err.InnerExceptions)
+                {
+                    ModelState.AddModelError("", errInner.ToString()); //this will call ToString() on the inner execption and get you message, stacktrace and you could perhaps drill down further into the inner exception of it if necessary 
+                }
             }
             return View();
         }
