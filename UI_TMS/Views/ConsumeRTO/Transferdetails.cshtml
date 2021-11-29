@@ -18,7 +18,12 @@
             <td>@Html.EditorFor(x => x.Owner)</td>
         </tr>
         <tr>
-            <th><input type="submit" value="Submit"/></th>
+            <th><input type="submit" value="Submit" /></th>
         </tr>
     </table>
+    <div>
+        <button style="background-color:white;">
+            @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
+        </button>
+    </div>
 </form>

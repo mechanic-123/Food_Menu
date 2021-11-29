@@ -1,42 +1,47 @@
 ﻿<body style="background-color:antiquewhite;text-align:center;">
 @model TMS_CRS.Models.TmRegdetail;
-<form method="post">
-    @Html.ValidationSummary(true)
-    <marquee><h1 style="color:red">Welcome to the  Vehicle Registration Page</h1></marquee>
-    <table  style="margin-left:auto;margin-right:auto;margin-top:10%;">
-        <tr>
-            <th>Application Number</th>
-            <td>@Html.EditorFor(x=>x.AppNo)</td>
-        </tr>
-        <tr>
-            <th>Vehicle Number</th>
-            <td width: 550px;>@Html.TextBoxFor(x => x.VehNo)</td>
-        </tr>
-        <tr>
-            <th><b>Vehicle ID</b></th>
-            <td>@Html.TextBoxFor(x => x.VehId)</td>
-        </tr>
-        <tr>
-            <th><b>Owner ID</b></th>
-            <td>@Html.TextBoxFor(x => x.OwnerId)</td>
-        </tr>
-        <tr>
-            
-            <th><b>Old Owner ID</b></th>
-            <td>@Html.TextBoxFor(x => x.OldOwnerId,new { @Value = "null" })</td>
-        </tr>
-        <tr>
-            <th><b>Date of Purchase</b></th>
-            <td>@Html.TextBoxFor(x => x.DateOfPurchase, new { type = "date" })</td>
-        </tr>
-        <tr>
-            <th><b>Distributer Name</b></th>
-            <td>@Html.TextBoxFor(x => x.DistrubuterName)</td>
-        </tr>
-        <tr>
-            <td colspan="2" width="100%"><input type="submit" value="Submit"  style="text-align:center;background-color:deepskyblue"/></td>
-        </tr>
-    </table>
+    <form method="post">
+        @Html.ValidationSummary(true)
+        <marquee><h1 style="color:red">Welcome to the  Vehicle Registration Page</h1></marquee>
+        <table style="margin-left:auto;margin-right:auto;margin-top:10%;">
+            <tr>
+                <th>Application Number</th>
+                <td>@Html.EditorFor(x => x.AppNo)</td>
+            </tr>
+            <tr>
+                <th>Vehicle Number</th>
+                <td width: 550px;>@Html.TextBoxFor(x => x.VehNo)</td>
+            </tr>
+            <tr>
+                <th><b>Vehicle ID</b></th>
+                <td>@Html.TextBoxFor(x => x.VehId)</td>
+            </tr>
+            <tr>
+                <th><b>Owner ID</b></th>
+                <td>@Html.TextBoxFor(x => x.OwnerId)</td>
+            </tr>
+            <tr>
 
-</form>
+                <th><b>Old Owner ID</b></th>
+                <td>@Html.TextBoxFor(x => x.OldOwnerId, new { @Value = "null" })</td>
+            </tr>
+            <tr>
+                <th><b>Date of Purchase</b></th>
+                <td>@Html.TextBoxFor(x => x.DateOfPurchase, new { type = "date" })</td>
+            </tr>
+            <tr>
+                <th><b>Distributer Name</b></th>
+                <td>@Html.TextBoxFor(x => x.DistrubuterName)</td>
+            </tr>
+            <tr>
+                <td colspan="2" width="100%"><input type="submit" value="Submit" style="text-align:center;background-color:deepskyblue" /></td>
+            </tr>
+        </table>
+        <div>
+            <button style="background-color:white;">
+                @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
+            </button>
+        </div>
+
+    </form>
 </body>

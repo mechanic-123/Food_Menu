@@ -3,13 +3,18 @@
     <table>
         <tr>
             <th>Enter Owner ID</th>
-            <td>@Html.EditorFor(x=>x.OwnerId)</td>
+            <td>@Html.EditorFor(x => x.OwnerId)</td>
             <td><input type="number" /></td>
         </tr>
         <tr>
-            <th><input type="submit" value="Submit"/></th>
+            <th><input type="submit" value="Submit" /></th>
         </tr>
     </table>
+    <div>
+        <button style="background-color:white;">
+            @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
+        </button>
+    </div>
 </form>
 @if(Model != null)
 {
