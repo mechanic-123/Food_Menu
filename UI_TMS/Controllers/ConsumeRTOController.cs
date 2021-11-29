@@ -37,7 +37,6 @@ namespace UI_TMS.Controllers
             }
             catch (Exception ex)
             {
-
                 ModelState.AddModelError("", ex.ToString());
             }
 
@@ -66,7 +65,6 @@ namespace UI_TMS.Controllers
             }
             catch (Exception ex)
             {
-
                 ModelState.AddModelError("", ex.ToString());
             }
             return View();
@@ -76,35 +74,47 @@ namespace UI_TMS.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Registration(TmRegdetail r)
+        public IActionResult Registration(TmRegdetail reg)
         {
             try
             {
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("http://localhost:12850/api/RTO/");
-                    var postdata = client.PostAsJsonAsync<TmRegdetail>("Register", r);
+                    var postdata = client.PostAsJsonAsync<TmRegdetail>("Register", reg);
                     postdata.Wait();
                     var result = postdata.Result;
-                    ModelState.AddModelError("", result.ToString());
+                    ModelState.AddModelError("",result.ToString());
                     if (result.IsSuccessStatusCode)
-                    {
-                        ModelState.AddModelError("", "New Registered");
-                    }
+                        ModelState.AddModelError("", "New Registration Successful");
                     else
-                        ModelState.AddModelError("", "Not Registered");
+                        ModelState.AddModelError("","Not Registered");
                 }
             }
             catch (Exception ex)
             {
-
                 ModelState.AddModelError("", ex.ToString());
             }
             return View();
         }
-        public IActionResult Transferdetails()
+        public IActionResult Transferdetails(int vehId)
         {
-            return View();
+            TmRegdetail reg = new TmRegdetail();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:12850/api/RTO/");
+                var responsedata = client.GetAsync("Transferdetails/" + vehId);
+                responsedata.Wait();
+
+                var result = responsedata.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readresult = result.Content.ReadAsAsync<TmRegdetail>();
+                    readresult.Wait();
+                    reg = readresult.Result;
+                }
+            }
+            return View(reg);
         }
         [HttpPost]
         public IActionResult Transferdetails(TmRegdetail r, int vehId)
@@ -128,6 +138,15 @@ namespace UI_TMS.Controllers
 
                 ModelState.AddModelError("", ex.ToString());
             }
+            return View();
+        }
+        public IActionResult GenerateReport()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult GenerateReport(int id)
+        {
             return View();
         }
     }

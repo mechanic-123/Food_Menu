@@ -42,5 +42,11 @@ namespace TMS_CRS.Controller
         {
             return r.Transferdetails(reg, vehId);
         }
+        [HttpGet]
+        [Route("/api/RTO/Generate Report/{id}")]
+        public List<TmOwnerdetail> Get(int id)
+        {
+            return r.GenerateReport(id);
+        }
     }
 }

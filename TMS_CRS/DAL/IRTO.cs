@@ -13,7 +13,7 @@ namespace TMS_CRS.DAL
         int AddVechile(TmVehicledetail v);
         int Registration(TmRegdetail r);
         
-        //List<>GenerateReport();
+        List<TmOwnerdetail> GenerateReport(int id);
 
 
 

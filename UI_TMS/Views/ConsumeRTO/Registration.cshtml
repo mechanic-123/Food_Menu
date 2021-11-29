@@ -3,6 +3,10 @@
     @Html.ValidationSummary(true)
     <table>
         <tr>
+            <th>Application Number</th>
+            <td>@Html.EditorFor(x=>x.AppNo)</td>
+        </tr>
+        <tr>
             <th>Vehicle Number</th>
             <td>@Html.TextBoxFor(x => x.VehNo)</td>
         </tr>
@@ -15,20 +19,15 @@
             <td>@Html.TextBoxFor(x => x.OwnerId)</td>
         </tr>
         <tr>
-            <th>Old Owner ID</th>
-            <td>@Html.TextBoxFor(x => x.OldOwnerId,new { @Value = "null" })</td>
-        </tr>
-        <tr>
             <th>Date of Purchase</th>
             <td>@Html.TextBoxFor(x => x.DateOfPurchase, new { type = "date" })</td>
-        </tr>
         </tr>
         <tr>
             <th>Distributer Name</th>
             <td>@Html.TextBoxFor(x => x.DistrubuterName)</td>
         </tr>
         <tr>
-            <td><input type="submit" value="Submit" /></td>
+            <th><input type="submit" value="Submit" /></th>
         </tr>
     </table>
 </form>
