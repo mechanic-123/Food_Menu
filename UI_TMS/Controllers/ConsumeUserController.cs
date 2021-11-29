@@ -11,11 +11,7 @@ namespace UI_TMS.Controllers
 {
     public class ConsumeUserController : Controller
     {
-        readonly TMSDBContext db;
-        public ConsumeUserController(TMSDBContext db)
-        {
-            this.db = db;
-        }
+        
         public IActionResult UserLogin()
         {
             return View();
@@ -23,7 +19,9 @@ namespace UI_TMS.Controllers
         [HttpPost]
         public IActionResult UserLogin(string uname, string password)
         {
+            TMSDBContext db = new TMSDBContext();
             uname = Request.Form["txtuser"];
+            
             password = Request.Form["txtpass"];
             var data = (from user in db.TmUsermasters
                         where (user.Username == uname && user.Password == password)
@@ -56,7 +54,9 @@ namespace UI_TMS.Controllers
                     var postdata = client.PostAsJsonAsync<TmUsermaster>("User/AddUser", u);
                     postdata.Wait();
                     var res = postdata.Result;
+                    ModelState.AddModelError("", res.ToString());
                     if (res.IsSuccessStatusCode)
+
                         ModelState.AddModelError("", "New User Added");
                 }
             }

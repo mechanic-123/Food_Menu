@@ -1,40 +1,51 @@
-﻿@model TMS_CRS.Models.OffenceDetail
-@using(Html.BeginForm())
-            {
-    <table border="1">
-    <tr>
-        <td> Enter Vehicle No</td>
-        <td>@Html.TextBoxFor(x=>x.VehNo)</td>
-      </tr>
-    
-    <tr>
-         <td> Place</td>
-         <td>@Html.TextBoxFor(x=>x.Place)</td>
-    </tr>
-        <tr>
-            <td> Offence Id</td>
-            <td>@Html.DropDownList("ddloid",ViewData["data"] as SelectList)</td>
-        </tr>
-        <tr>
-            <td> Reported By</td>
-            <td>@Html.TextBoxFor(x=>x.ReportedBy)</td>
-        </tr>
-        <tr>
-            <td> Pentaly status</td>
-            <td>@Html.TextBoxFor(x=>x.Status)</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Add"/></td>
-        </tr>
-    </table>
+﻿<body style="background-color:navajowhite">
+    @model TMS_CRS.Models.OffenceDetail
+    <marquee><h1 style="color:saddlebrown">Welcome to Offence Page</h1></marquee>
+    @using (Html.BeginForm())
+    {
 
-    
-            }
+        <table class="center" border="1" cellpadding="4" cellspacing="10"style="margin-left:auto;margin-right:auto;margin-top:10%" >
+            <tr>
+                <td><b> Enter Vehicle No</b></td>
+                <td>@Html.TextBoxFor(x => x.VehNo)</td>
+            </tr>
 
-@Html.ValidationSummary(true)
-<br/>
-<br/>
-<br/>
+            <tr>
+                <td> <b>Place</b></td>
+                <td>@Html.TextBoxFor(x => x.Place)</td>
+            </tr>
+            <tr>
+                <td><b>Offence Id</b></td>
+                <td>@Html.DropDownList("ddloid", ViewData["data"] as SelectList)</td>
+            </tr>
+            <tr>
+                <td><b>Reported By</b></td>
+                <td>@Html.TextBoxFor(x => x.ReportedBy)</td>
+            </tr>
+            <tr>
+                <td><b>Pentaly status</b></td>
+                <td>@Html.TextBoxFor(x => x.Status)</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="ADD" style="background-color:deepskyblue;" /></td>
+            </tr>
+        </table>
 
 
-<td><button type="button" onclick="location.href='@Url.Action("HomePage")'">Return To HomePage</button></td>
+    }
+    <style>
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        
+    </style>
+
+
+    @Html.ValidationSummary(true)
+    <br />
+    <br />
+    <br />
+</body>
+<div class="centre" ><button type="button" style="background-color:deepskyblue"  onclick="location.href='@Url.Action("HomePage")'">Return To HomePage</button></div>

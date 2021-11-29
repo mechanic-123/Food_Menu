@@ -10,6 +10,10 @@ namespace UI_TMS.Controllers
 {
     public class ConsumeRTOController : Controller
     {
+        public IActionResult MainHome()
+        {
+            return View();
+        }
         public IActionResult RTOHome()
         {
             return View();

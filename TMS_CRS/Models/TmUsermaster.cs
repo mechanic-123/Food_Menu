@@ -11,4 +11,10 @@ namespace TMS_CRS.Models
         public string Password { get; set; }
         public string Rolename { get; set; }
     }
+    public enum RoleName
+    {
+        RTO_Officer,
+        Traffic_Police,
+        Vehicle_Owner
+    }
 }

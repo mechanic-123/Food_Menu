@@ -1,34 +1,38 @@
-﻿@model TMS_CRS.Models.TmRegdetail;
+﻿<body style="background-color:darkcyan;text-align:center;">
+@model TMS_CRS.Models.TmRegdetail;
 <form method="post">
     @Html.ValidationSummary(true)
-    <table>
+    <marquee><h1 style="color:red">Welcome to the  Vehicle Registration Page</h1></marquee>
+    <table border="3" style="margin-left:auto;margin-right:auto;margin-top:10%;">
         <tr>
-            <th>Vehicle Number</th>
-            <td>@Html.TextBoxFor(x => x.VehNo)</td>
+            <th><b>Vehicle Number</b></th>
+            <td  width: 550px;>@Html.TextBoxFor(x => x.VehNo)</td>
         </tr>
         <tr>
-            <th>Vehicle ID</th>
+            <th><b>Vehicle ID</b></th>
             <td>@Html.TextBoxFor(x => x.VehId)</td>
         </tr>
         <tr>
-            <th>Owner ID</th>
+            <th><b>Owner ID</b></th>
             <td>@Html.TextBoxFor(x => x.OwnerId)</td>
         </tr>
         <tr>
-            <th>Old Owner ID</th>
+            <th><b>Old Owner ID</b></th>
             <td>@Html.TextBoxFor(x => x.OldOwnerId,new { @Value = "null" })</td>
         </tr>
         <tr>
-            <th>Date of Purchase</th>
+            <th><b>Date of Purchase</b></th>
             <td>@Html.TextBoxFor(x => x.DateOfPurchase, new { type = "date" })</td>
         </tr>
         </tr>
         <tr>
-            <th>Distributer Name</th>
+            <th><b>Distributer Name</b></th>
             <td>@Html.TextBoxFor(x => x.DistrubuterName)</td>
         </tr>
         <tr>
-            <td><input type="submit" value="Submit" /></td>
+            <td colspan="2" width="100%"><input type="submit" value="Submit"  style="text-align:center;background-color:deepskyblue"/></td>
         </tr>
     </table>
+
 </form>
+</body>
