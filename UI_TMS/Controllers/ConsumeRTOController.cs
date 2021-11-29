@@ -149,9 +149,25 @@ namespace UI_TMS.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult GenerateReport(int id)
+        public IActionResult GenerateReport(int ID)
         {
-            return View();
+            ID = Convert.ToInt32(Request.Form["id"]);
+            List<TmOwnerdetail> p = new List<TmOwnerdetail>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:12850/api/");
+                var responsedata = client.GetAsync("RTO/GenerateReport/" + ID);
+                responsedata.Wait();
+
+                var result = responsedata.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readresult = result.Content.ReadAsAsync<List<TmOwnerdetail>>();
+                    readresult.Wait();
+                    p = readresult.Result;
+                }
+            }
+            return View(p);
         }
     }
 }
