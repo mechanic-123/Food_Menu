@@ -52,6 +52,9 @@ namespace UI_TMS.Controllers
             {
                 using (var client = new HttpClient())
                 {
+                    u.Username = Request.Form["username"];
+                    u.Rolename = Request.Form["rolename"];
+                    u.Password = Request.Form["password"];
                     client.BaseAddress = new Uri("http://localhost:12850/api/");
                     var postdata = client.PostAsJsonAsync<TmUsermaster>("User/AddUser", u);
                     postdata.Wait();

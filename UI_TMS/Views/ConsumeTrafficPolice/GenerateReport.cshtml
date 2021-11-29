@@ -1,40 +1,50 @@
 ﻿<body style="background-color:antiquewhite">
+
     @model List<TMS_CRS.Models.OffenceDetail>
         <marquee><h1 style="color:saddlebrown">Welcome To Report Page</h1></marquee>
         <form method="post">
-
-
-            <div style="text-align:center"><b>Enter Vehicle No:@Html.TextBox("vno")</b></div>
-
-            <br />
-            <div style="text-align:center"><input type="submit" value="Generate Report" name="vno" style="background-color:deepskyblue" /></div>
-            <br />
-            <br />
-            @if (Model != null)
-            {
-
-                <table border="1">
-                    <tr>
-                        <th>Vehicle No</th>
-                        <th>Offence ID</th>
-                        <th>Place</th>
-                        <th>Reported By</th>
-                        <th>Status</th>
-                    </tr>
-                    @foreach (var m in Model)
-                    {
-                        <tr>
-                            <td>@m.VehNo</td>
-                            <td>@m.OffenceId</td>
-                            <td>@m.Place</td>
-                            <td>@m.ReportedBy</td>
-                            <td>@m.Status</td>
-                        </tr>
-                    }
-                </table>
-            }
-
+            <table>
+                <tr>
+                    <th>Enter vechile No</th>
+                    <td><input type="text" name="vno" /></td>
+                </tr>
+                <tr>
+                    
+                    <th><input type="submit" value="Generate Report" style="background-color:deepskyblue" /></th>
+                </tr>
+            </table>
         </form>
+        <br />
+        <br />
+        <br />
+        @if (Model != null)
+        {
+            <table border="4">
+                <tr>
+                    
+                    <th>offence Id</th>
+                    <th>Place</th>
+                    <th>Timing</th>
+                    <th>Reported By</th>
+                    <th>Status</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        
+                        <td>@item.OffenceId</td>
+                        <td>@item.Place</td>
+                        <td>@item.Time</td>
+                        <td>@item.ReportedBy</td>
+                        <td>@item.Status</td>
+                    </tr>
+                }
+            </table>
+        }
+        <br />
+        <br />
+        <br />
+        <br />
     </body>
 <br/>
 <br/>

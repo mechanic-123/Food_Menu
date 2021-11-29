@@ -3,10 +3,27 @@
     <marquee><h1> Welcome To Traffic Police Home Page</h1></marquee>
 
 
-   <div>@Html.ActionLink("Add Pentaly", "AddOffence", "ConsumeTrafficPolice")</div>
+    <div>
+        <button style="background-color:rosybrown">
+            @Html.ActionLink("Add Pentaly", "AddOffence", "ConsumeTrafficPolice")
+        </button>
+    </div>
     <br />
-    <div>@Html.ActionLink("Show all Offence And Edit", "Showalloffence", "ConsumeTrafficPolice")</div>
+    <div>
+        <button style="background-color:palevioletred">
+            @Html.ActionLink("Show all Offence And Edit", "Showalloffence", "ConsumeTrafficPolice")'
+        </button>
+    </div>
     <br />
-    <div>@Html.ActionLink("Generate Report", "GenerateReport", "ConsumeTrafficPolice")</div>
+    <div>
+        <button style="background-color:gold">
+            @Html.ActionLink("Generate Report", "GenerateReport", "ConsumeTrafficPolice")
+        </button>
+    </div>
     <br />
+    <div>
+        <button style="background-color:white;">
+            @Html.ActionLink("Back", "MainHome", "ConsumeRTO")
+        </button>
+    </div>
 </body>

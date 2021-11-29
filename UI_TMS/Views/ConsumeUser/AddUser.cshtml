@@ -1,42 +1,39 @@
-﻿<body style="background-color:antiquewhite">
-   
-    @using TMS_CRS.Models
-    @model TmUsermaster
-    <marquee><h1 style="color:saddlebrown">Welcome To User Login Page</h1></marquee>
-    <button style="background-color:white;float:right;">@Html.ActionLink("Log in", "UserLogin")</button>
-    @using (Html.BeginForm())
-    {
-        <!--
-           <div style="text-align:center">
-               @Html.ValidationSummary(true)
-               <div><b>User Name</b> :@Html.TextBoxFor(x => x.Username)</div>
-               <div><b>Enter Rolename</b> :@Html.TextBoxFor(x => x.Rolename)</div>
-               <div><b>Enter Password</b> :@Html.TextBoxFor(x => x.Password)</div>
-               <div><input type="submit" value="Register" /></div>
-           </div>
-           -->
-        <table class="center" border="0" cellpadding="4" cellspacing="10" style="margin-left:auto;margin-right:auto;margin-top:10%">
-            <tr>
-                <td><b> Enter User Name</b></td>
-                <td>@Html.TextBoxFor(x => x.Username)</td>
-            </tr>
-
-            <tr>
-                <td> <b>Enter Rolename</b></td>
-                <td>
-                    @Html.DropDownListFor(m => m.Rolename, new SelectList(Enum.GetValues(typeof(RoleName))), "Select Role")
-                </td>
-            </tr>
-            <tr>
-                <td><b>Enter Password</b></td>
-                <td>@Html.TextBoxFor(x => x.Password)</td>
-            </tr>
-
-            <tr>
-                <td colspan="2"><input type="submit" value="Register" style="background-color:deepskyblue;" /></td>
-            </tr>
-        </table>
-    }
-
-    
-</body>
+﻿<link rel="stylesheet" href="~/css/AddUser.css" />
+<div class="signupSection">
+    <div class="info">
+        <h2>Welcome to Registration Page</h2>
+        <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+        <hr />
+        <p>Please Choose your rolename from below options:</p>
+        <ul class="noBullet">
+            <li>1.RTO_Officer</li>
+            <li>2.Traffic_Police</li>
+            <li>3.Vehicle_Owner</li>
+            <hr />
+            <li>OR</li>
+        </ul>
+        <span></span>
+        <h4>@Html.ActionLink("Log in", "UserLogin")</h4>
+    </div>
+    <form method="post" class="signupForm" name="signupform">
+        <h2>Sign Up</h2>
+        <ul class="noBullet">
+            <li>
+                <label for="username"></label>
+                <input type="text" class="inputFields" id="username" name="username" placeholder="Username" required />
+            </li>
+            <li>
+                <label for="rolename"></label>
+                <input type="text" class="inputFields" id="rolename" name="rolename" placeholder="Rolename" required />
+            </li>
+            <li>
+                <label for="password"></label>
+                <input type="password" class="inputFields" id="password" name="password" placeholder="Password" required />
+            </li>
+            <li id="center-btn">
+                <input type="submit" id="register-btn" name="register" alt="Register" value="Register">
+            </li>
+        </ul>
+    </form>
+</div>
+@Html.ValidationSummary(true)
