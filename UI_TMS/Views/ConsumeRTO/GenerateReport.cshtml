@@ -1,24 +1,30 @@
-﻿@model TMS_CRS.Models.TmOwnerdetail;
+﻿@model List<TMS_CRS.Models.TmOwnerdetail>;
 <form method="post">
     <table>
         <tr>
             <th>Enter Owner ID</th>
-            <td>@Html.EditorFor(x => x.OwnerId)</td>
-            <td><input type="number" /></td>
+            <td><input type="number" name="id"/></td>
         </tr>
         <tr>
-            <th><input type="submit" value="Submit" /></th>
+            <th><input type="submit" value="Submit"/></th>
         </tr>
     </table>
-    <div>
-        <button style="background-color:white;">
-            @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
-        </button>
-    </div>
 </form>
 @if(Model != null)
 {
     <table>
-
+        <tr>
+            <th>Owner ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OwnerId</td>
+                <td>@item.Fname</td>
+                <td>@item.Lname</td>
+            </tr>
+        }
     </table>
 }
