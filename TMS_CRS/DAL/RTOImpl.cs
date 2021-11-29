@@ -40,7 +40,7 @@ namespace TMS_CRS.DAL
                 return 0;
         }
 
-        public List<TmOwnerdetail> GenerateReport()
+        public List<TmOwnerdetail> GenerateReport(int id)
         {
             return db.TmOwnerdetails.ToList();
         }

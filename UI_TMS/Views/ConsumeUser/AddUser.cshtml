@@ -3,6 +3,7 @@
     @using TMS_CRS.Models
     @model TmUsermaster
     <marquee><h1 style="color:saddlebrown">Welcome To User Login Page</h1></marquee>
+    <button style="background-color:white;float:right;">@Html.ActionLink("Log in", "UserLogin")</button>
     @using (Html.BeginForm())
     {
         <!--
@@ -37,7 +38,5 @@
         </table>
     }
 
-    <div>
-        @Html.ActionLink("Log in", "UserLogin")
-    </div>
+    
 </body>

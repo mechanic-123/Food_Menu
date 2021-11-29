@@ -1,6 +1,20 @@
-﻿<form>
-    <div>@Html.ActionLink("Registration","Registration")</div>
-    <div>@Html.ActionLink("Add Owner Details","AddOwner")</div>
-    <div>@Html.ActionLink("Add Vehicle Details","AddVehicle")</div>
-    <div>@Html.ActionLink("Vehicle Transfer","Transferdetails")</div>
-</form>
+﻿<body style="background-color:antiquewhite">
+    <form>
+
+        <div>
+            <button style="background-color:maroon">
+                @Html.ActionLink("Add Owner Details", "AddOwner")
+            </button>
+        </div>
+        <div>
+            <button style="background-color:royalblue">
+                @Html.ActionLink("Vehicle Details", "AddVehicle")
+            </button>
+        </div>
+        <div>
+            <button style="background-color:limegreen">
+                @Html.ActionLink("Vehicle Transfer", "Transferdetails")
+            </button>
+        </div>
+    </form>
+</body>
