@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TMS_CRS.Models;
 
 namespace TestTMS
 {
@@ -60,18 +61,18 @@ namespace TestTMS
         var res = rto.Registration(reg);
         if (res > 0)
             Console.WriteLine("Registeration Done");*/
-        /*TmRegdetail reg = new TmRegdetail
-        {
-            AppNo = "REG002",
-            VehNo = "SHP002",
-            VehId = 10000,
-            OwnerId = 1001,
-            OldOwnerId = null,
-            DateOfPurchase = DateTime.Today,
-            DistrubuterName = "Bardocks"
-        };
-        var res = rto.Transferdetails(reg, 10000);
-        if(res)
-            Console.WriteLine("Transferred.");*/
+        //TmRegdetail reg = new TmRegdetail
+        //{
+        //    AppNo = "REG002",
+        //    VehNo = "SHP002",
+        //    VehId = 10000,
+        //    OwnerId = 1001,
+        //    OldOwnerId = null,
+        //    DateOfPurchase = DateTime.Today,
+        //    DistrubuterName = "Bardocks"
+        //};
+        //var res = rto.Transferdetails(reg, 10000);
+        //if(res)
+        //    Console.WriteLine("Transferred.");
     }
 }
