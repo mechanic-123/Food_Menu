@@ -140,18 +140,21 @@ namespace UI_TMS.Controllers
             return View(reg);
         }
         [HttpPost]
-        public IActionResult Transferdetails(TmRegdetail r, int vehId)
+        public IActionResult Transferdetails(TmRegdetail r, int vehID)
         {
             try
             {
                 //id = c.CustomerId;
+                vehID = Convert.ToInt32(r.VehId);
+                ModelState.AddModelError("", vehID.ToString());
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("http://localhost:12850/api/");
-                    var responsedata = client.PutAsJsonAsync("RTO/Transferdetails/" + vehId, r);
+                    var responsedata = client.PutAsJsonAsync("RTO/Transferdetails/" + r,vehID);
                     responsedata.Wait();
 
                     var result = responsedata.Result;
+                    ModelState.AddModelError("", result.ToString());
                     if (result.IsSuccessStatusCode)
                     {
                         return RedirectToAction("RTOHome");

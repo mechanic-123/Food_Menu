@@ -1,4 +1,5 @@
-﻿<link rel="stylesheet" href="~/css/AddUser.css" />
+﻿@model TMS_CRS.Models.TmUsermaster
+<link rel="stylesheet" href="~/css/AddUser.css" />
 <div class="signupSection">
     <div class="info">
         <h2>Welcome to Registration Page</h2>
@@ -21,14 +22,17 @@
             <li>
                 <label for="username"></label>
                 <input type="text" class="inputFields" id="username" name="username" placeholder="Username" required />
+                @Html.ValidationMessageFor(x => x.Username)
             </li>
             <li>
                 <label for="rolename"></label>
                 <input type="text" class="inputFields" id="rolename" name="rolename" placeholder="Rolename" required />
+                @Html.ValidationMessageFor(x => x.Rolename)
             </li>
             <li>
                 <label for="password"></label>
                 <input type="password" class="inputFields" id="password" name="password" placeholder="Password" required />
+                @Html.ValidationMessageFor(x => x.Password)
             </li>
             <li>
                 @Html.ValidationSummary(true)

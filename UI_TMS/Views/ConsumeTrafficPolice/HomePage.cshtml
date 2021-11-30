@@ -1,37 +1,13 @@
-﻿<style>
-    button {
-        height: 150px;
-        width: 250px;
-    }
-</style>
-<body style="background-color:antiquewhite">
-    <marquee><h1> Welcome To Traffic Police Home Page</h1></marquee>
-    <form>
-        <table align="center">
-            <tr>
-                <th>
-                    <button style="background-color:yellowgreen;">
-                        @Html.ActionLink("Add Pentaly", "AddOffence", "ConsumeTrafficPolice")
-                    </button>
-                </th>
-                <th>
-                    <button style="background-color:orange">
-                        @Html.ActionLink("Show all Offence And Edit", "Showalloffence", "ConsumeTrafficPolice")
-                    </button>
-                </th>
-
-                <th>
-                    <button style="background-color:wheat">
-                        @Html.ActionLink("Generate Report", "GenerateReport", "ConsumeTrafficPolice")
-                    </button>
-                </th>
-            </tr>
-
-        </table>
-    </form>
-    <div>
-        <button style="background-color: white; float:left; height: 50px; width: 100px;">
-            @Html.ActionLink("Back", "MainHome", "ConsumeRTO")
-        </button>
-    </div>
-</body>
+﻿<link rel="stylesheet" href="~/css/HomePage.css" />
+<nav>
+    <div class="nav-bg"></div>
+    <ul>
+        <li><a href="">@Html.ActionLink("Add Pentaly", "AddOffence", "ConsumeTrafficPolice")</a></li>
+        <li><a href="">@Html.ActionLink("Show all Offence And Edit", "Showalloffence", "ConsumeTrafficPolice")</a></li>
+        <li><a href="">@Html.ActionLink("Generate Report", "GenerateReport", "ConsumeTrafficPolice")</a></li>
+    </ul>
+</nav>
+<div class="hero">
+<img src="~/Image/egor-myznik-NkGGF6BvU88-unsplash.jpg" width="90%" height="90%"/>
+    <h1>Welcome to Traffic Police Page</h1>
+</div>

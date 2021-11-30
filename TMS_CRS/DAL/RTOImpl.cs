@@ -67,10 +67,8 @@ namespace TMS_CRS.DAL
         public bool Transferdetails(TmRegdetail newval, int vehId)
         {
             var olddata = db.TmRegdetails.Where(x => x.VehId == vehId).FirstOrDefault();
-            olddata.OldOwnerId = newval.OldOwnerId;
+            olddata.OldOwnerId = olddata.OwnerId;
             olddata.OwnerId = newval.OwnerId;
-            olddata.OldOwner = newval.OldOwner;
-            olddata.Owner = newval.Owner;
             var res = db.SaveChanges();
             if (res == 1)
                 return true;
