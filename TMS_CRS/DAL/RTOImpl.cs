@@ -51,7 +51,7 @@ namespace TMS_CRS.DAL
 
         public TmRegdetail GetById(long id)
         {
-            return db.TmRegdetails.Where(x => x.OwnerId == id).FirstOrDefault();
+            return db.TmRegdetails.Where(x => x.VehId == id).FirstOrDefault();
         }
 
         public int Registration(TmRegdetail r)
@@ -64,7 +64,7 @@ namespace TMS_CRS.DAL
                 return 0;
         }
 
-        public bool Transferdetails(TmRegdetail newval, int vehId)
+        public bool Transferdetails(TmRegdetail newval, long vehId)
         {
             var olddata = db.TmRegdetails.Where(x => x.VehId == vehId).FirstOrDefault();
             olddata.OldOwnerId = olddata.OwnerId;

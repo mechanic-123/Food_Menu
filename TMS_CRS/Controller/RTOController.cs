@@ -38,7 +38,7 @@ namespace TMS_CRS.Controller
         }
         [HttpPut]
         [Route("/api/RTO/Transferdetails/{vehId}")]
-        public bool Put(TmRegdetail reg, int vehId)
+        public bool Put(TmRegdetail reg, long vehId)
         {
             return r.Transferdetails(reg, vehId);
         }
