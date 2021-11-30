@@ -25,5 +25,13 @@ namespace TMS_CRS.DAL
                 return true;
             return false;
         }
+
+        public TmUsermaster UserLogin(string uname, string password)
+        {
+            var role = (from u in db.TmUsermasters
+                        where (u.Username == uname && u.Password == password)
+                        select u).SingleOrDefault();
+            return role;
+        }
     }
 }

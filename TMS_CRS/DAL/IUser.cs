@@ -10,5 +10,6 @@ namespace TMS_CRS.DAL
     public interface IUser
     {
         bool AddUser(TmUsermaster user);
+        TmUsermaster UserLogin(string uname, string password);
     }
 }

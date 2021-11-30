@@ -51,21 +51,26 @@ namespace TestTMS
                 Console.WriteLine("User Added");
 
             Console.WriteLine("Registeration Done"); */
-        IRTO rto = new RTOImpl();
-        TmRegdetail reg = new TmRegdetail
-        {
-            AppNo = "REG002",
-            VehNo = "SHP002",
-            VehId = 10000,
-            OwnerId = 1002,
-            OldOwnerId = null,
-            DateOfPurchase = DateTime.Today,
-            DistrubuterName = "Bardocks"
-        };
-        var res = rto.Transferdetails(reg, 10000);
-        if(res)
-            Console.WriteLine("Transferred.");
+            /*IRTO rto = new RTOImpl();
+            TmRegdetail reg = new TmRegdetail
+            {
+                AppNo = "REG002",
+                VehNo = "SHP002",
+                VehId = 10000,
+                OwnerId = 1002,
+                OldOwnerId = null,
+                DateOfPurchase = DateTime.Today,
+                DistrubuterName = "Bardocks"
+            };
+            var res = rto.Transferdetails(reg, 10000);
+            if(res)
+                Console.WriteLine("Transferred.");
 
+            }*/
+            IUser u = new UserImpl();
+            var res = u.UserLogin("Alex", "Alex");
+            if(res!=null)
+                Console.WriteLine(res.ToString());
         }
     }
 }

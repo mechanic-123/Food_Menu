@@ -11,7 +11,7 @@ namespace UI_TMS.Controllers
 {
     public class ConsumeUserController : Controller
     {
-        
+
         public IActionResult UserLogin()
         {
             return View();
@@ -21,23 +21,37 @@ namespace UI_TMS.Controllers
         {
             TMSDBContext db = new TMSDBContext();
             uname = Request.Form["txtuser"];
-            
+
             password = Request.Form["txtpass"];
-            var role = (from u in db.TmUsermasters
-                       where (u.Username == uname && u.Password == password)
-                       select u.Rolename).SingleOrDefault();
-            if (role != null)
+            using (var client = new HttpClient())
             {
-                if (Convert.ToString(role) == "RTO_Officer")
-                    return RedirectToAction("RTOHome", "ConsumeRTO");
-                if (Convert.ToString(role) == "Traffic_Police")
-                    return RedirectToAction("HomePage", "ConsumeTrafficPolice");
-                if (Convert.ToString(role) == "Vehicle_Owner")
-                    return RedirectToAction("PayOffence", "ConsumeTrafficPolice");
+                string role = null;
+                client.BaseAddress = new Uri("http://localhost:12850/api/");
+                var responsedata = client.GetAsync("User/UserLogin/" + uname + "/" + password);
+                responsedata.Wait();
+                var result = responsedata.Result;
+                ModelState.AddModelError("", result.ToString());
+                if (result.IsSuccessStatusCode)
+                {
+                    var readresult = result.Content.ReadAsAsync<TmUsermaster>();
+                    readresult.Wait();
+                    var temp = readresult.Result;
+                    role = Convert.ToString(temp.Rolename);
+                    ModelState.AddModelError("", role);
+                }
+                if (role != null)
+                {
+                    if (Convert.ToString(role) == "RTO_Officer")
+                        return RedirectToAction("RTOHome", "ConsumeRTO");
+                    if (Convert.ToString(role) == "Traffic_Police")
+                        return RedirectToAction("HomePage", "ConsumeTrafficPolice");
+                    if (Convert.ToString(role) == "Vehicle_Owner")
+                        return RedirectToAction("PayOffence", "ConsumeTrafficPolice");
+                }
+                else
+                    ModelState.AddModelError("", "Invalid Username or Password");
+                return View();
             }
-            else
-                ModelState.AddModelError("", "Invalid Username or Password");
-            return View();
         }
 
         public IActionResult AddUser()

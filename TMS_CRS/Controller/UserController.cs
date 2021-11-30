@@ -26,5 +26,11 @@ namespace TMS_CRS.Controller
         {
             return user.AddUser(u);
         }
+        [HttpGet]
+        [Route("/api/User/UserLogin/{uname}/{password}")]
+        public TmUsermaster Get(string uname, string password)
+        {
+            return user.UserLogin(uname, password);
+        }
     }
 }
