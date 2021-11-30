@@ -31,14 +31,14 @@
             </tr>
             
             <tr>
-                <td colspan="2" width="100%" style="padding-top:30px"><input type="submit" value="Submit" style="text-align:center;background-color:deepskyblue" /></td>
+                <th colspan="2" style="text-align:center">@Html.TextBox("sub_button", "Submit", new { type = "submit", style = "background-color:#00beff;height: 50px; width: 100px;" })</th>
             </tr>
         </table>
         <br />
         <div>
-            <button style="background-color:white;">
-                @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
-            </button>
+            <input type="button" value="Back"
+                   style="height: 50px; width: 100px; background-color: #00beff;"
+                   onclick="location.href='@Url.Action("RTOHome", "ConsumeRTO")'" />
         </div>
 
     </form>

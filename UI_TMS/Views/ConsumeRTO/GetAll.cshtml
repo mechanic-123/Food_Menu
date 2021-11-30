@@ -16,8 +16,9 @@
         }
     </table>
 </form>
+<br />
 <div>
-    <button style="background-color:white;">
-        @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
-    </button>
+    <input type="button" value="Back"
+           style="height: 50px; width: 100px; background-color: #00beff;"
+           onclick="location.href='@Url.Action("RTOHome", "ConsumeRTO")'" />
 </div>

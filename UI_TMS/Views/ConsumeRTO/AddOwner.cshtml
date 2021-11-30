@@ -57,13 +57,13 @@
                 <td>@Html.TextBoxFor(x => x.AddProofName)</td>
             </tr>
             <tr>
-                <th colspan="2" style="text-align:center"><input type="submit" value="Submit" style="background-color:dodgerblue" /></th>
+                <th colspan="2" style="text-align:center">@Html.TextBox("sub_button", "Submit", new { type = "submit",style= "background-color:#00beff;height: 50px; width: 100px;" })</th>
             </tr>
         </table>
         <div>
-            <button>
-                @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
-            </button>
+            <input type="button" value="Back" 
+                   style="height: 50px; width: 100px; background-color: #00beff;"
+                   onclick="location.href='@Url.Action("RTOHome", "ConsumeRTO")'" />
         </div>
     </form>
 </body>

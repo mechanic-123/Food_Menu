@@ -1,48 +1,39 @@
 ﻿<link rel="stylesheet" href="~/css/style.css" />
 <style>
-    button{
+    input {
         height: 150px;
         width: 250px;
+        background-color: #00beff;
+        font-size: 25px;
+        color: white;
     }
 </style>
 <body style="background-color:antiquewhite">
     <form>
         <div>
-            <button style="background-color: white; float: right; height: 50px; width: 100px;">
-                @Html.ActionLink("Back", "MainHome", "ConsumeRTO")
-            </button>
+            <input type="button" value="Back" style="float: right; height: 50px; width: 100px;" onclick="location.href='@Url.Action("MainHome", "ConsumeRTO")'" />
         </div>
         <table align="center">
             <tr>
                 <th>
-                    <button style="background-color:orange">
-                        @Html.ActionLink("Add Owner Details", "AddOwner")
-                    </button>
+                    <input type="button" value="Add Owner Details" onclick="location.href='@Url.Action("AddOwner", "ConsumeRTO")'" />
                 </th>
                 <th>
-                    <button style="background-color:whitesmoke">
-                        @Html.ActionLink("Vehicle Details", "AddVehicle")
-                    </button>
+                    <input type="button" value="Vehicle Details" onclick="location.href='@Url.Action("AddVehicle", "ConsumeRTO")'" />
                 </th>
             </tr>
             <tr>
                 <th>
-                    <button style="background-color:limegreen">
-                        @Html.ActionLink("Vehicle Transfer", "GetAll")
-                    </button>
+                    <input type="button" value="Vehicle Transfer" onclick="location.href='@Url.Action("GetAll", "ConsumeRTO")'" />
                 </th>
                 <th>
-                    <button style="background-color:whitesmoke">
-                        @Html.ActionLink("Registration", "Registration")
-                    </button>
+                    <input type="button" value="Registration" onclick="location.href='@Url.Action("Registration", "ConsumeRTO")'" />
                 </th>
             </tr>
             <tr>
-                    <th colspan="2">
-                        <button style="background-color:orange">
-                            @Html.ActionLink("Generate Report", "GenerateReport")
-                        </button>
-                    </th>
+                <th colspan="2">
+                    <input type="button" value="Generate Report" onclick="location.href='@Url.Action("GenerateReport", "ConsumeRTO")'" />
+                </th>
             </tr>
         </table>
     </form>
