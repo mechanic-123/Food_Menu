@@ -26,7 +26,6 @@ namespace UI_TMS.Controllers
             var role = (from u in db.TmUsermasters
                        where (u.Username == uname && u.Password == password)
                        select u.Rolename).SingleOrDefault();
-            ModelState.AddModelError("", role);
             if (role != null)
             {
                 if (Convert.ToString(role) == "RTO_Officer")
@@ -53,14 +52,20 @@ namespace UI_TMS.Controllers
                 using (var client = new HttpClient())
                 {
                     u.Username = Request.Form["username"];
-                    u.Rolename = Request.Form["rolename"];
-                    u.Password = Request.Form["password"];
-                    client.BaseAddress = new Uri("http://localhost:12850/api/");
-                    var postdata = client.PostAsJsonAsync<TmUsermaster>("User/AddUser", u);
-                    postdata.Wait();
-                    var res = postdata.Result;
-                    if (res.IsSuccessStatusCode)
-                        ModelState.AddModelError("", "New User Added");
+                    string rname = Request.Form["rolename"];
+                    if (rname != "RTO_Officer" || rname != "Traffic_Police" || rname != "Vehicle_Owner")
+                        ModelState.AddModelError("", "Invalid Rolename");
+                    else
+                    {
+                        u.Rolename = rname;
+                        u.Password = Request.Form["password"];
+                        client.BaseAddress = new Uri("http://localhost:12850/api/");
+                        var postdata = client.PostAsJsonAsync<TmUsermaster>("User/AddUser", u);
+                        postdata.Wait();
+                        var res = postdata.Result;
+                        if (res.IsSuccessStatusCode)
+                            ModelState.AddModelError("", "New User Added");
+                    }
                 }
             }
             catch (AggregateException err)
