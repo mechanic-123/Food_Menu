@@ -8,23 +8,28 @@
             <tr>
                 <td><b> Enter Vehicle No</b></td>
                 <td>@Html.TextBoxFor(x => x.VehNo)</td>
+                <td>@Html.ValidationMessageFor(x=>x.VehNo)</td>
             </tr>
 
             <tr>
                 <td> <b>Place</b></td>
                 <td>@Html.TextBoxFor(x => x.Place)</td>
+                <td>@Html.ValidationMessageFor(x=>x.Place)</td>
             </tr>
             <tr>
                 <td><b>Offence Id</b></td>
                 <td>@Html.DropDownList("ddloid", ViewData["data"] as SelectList)</td>
+                <td>@Html.ValidationMessageFor(x=>x.OffenceId)</td>
             </tr>
             <tr>
                 <td><b>Reported By</b></td>
                 <td>@Html.TextBoxFor(x => x.ReportedBy)</td>
+                <td>@Html.ValidationMessageFor(x=>x.ReportedBy)</td>
             </tr>
             <tr>
                 <td><b>Pentaly status</b></td>
                 <td>@Html.TextBoxFor(x => x.Status)</td>
+                <td>@Html.ValidationMessageFor(x=>x.Status)</td>
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="ADD" style="background-color:deepskyblue;" /></td>
