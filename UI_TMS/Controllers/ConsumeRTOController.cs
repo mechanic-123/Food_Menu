@@ -152,7 +152,6 @@ namespace UI_TMS.Controllers
                     client.BaseAddress = new Uri("http://localhost:12850/api/");
                     var responsedata = client.PutAsJsonAsync("RTO/Transferdetails/" + r,vehID);
                     responsedata.Wait();
-
                     var result = responsedata.Result;
                     ModelState.AddModelError("", result.ToString());
                     if (result.IsSuccessStatusCode)
