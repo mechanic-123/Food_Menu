@@ -1,34 +1,49 @@
-﻿<body style="background-color:antiquewhite">
+﻿<link rel="stylesheet" href="~/css/style.css" />
+<style>
+    button{
+        height: 150px;
+        width: 250px;
+    }
+</style>
+<body style="background-color:antiquewhite">
     <form>
-
-        <br />
         <div>
-            <button style="background-color:maroon">
-                @Html.ActionLink("Add Owner Details", "AddOwner")
-            </button>
-        </div>
-        <br />
-        <div>
-            <button style="background-color:yellow">
-                @Html.ActionLink("Vehicle Details", "AddVehicle")
-            </button>
-        </div>
-        <br />
-        <div>
-            <button style="background-color:maroon">
-                @Html.ActionLink("Registration", "Registration")
-            </button>
-        </div>
-        <div>
-            <button style="background-color:limegreen">
-                @Html.ActionLink("Vehicle Transfer", "Transferdetails")
-            </button>
-        </div>
-        <br />
-        <div>
-            <button style="background-color:white;">
+            <button style="background-color: white; float: right; height: 50px; width: 100px;">
                 @Html.ActionLink("Back", "MainHome", "ConsumeRTO")
             </button>
         </div>
+        <table align="center">
+            <tr>
+                <th>
+                    <button style="background-color:orange">
+                        @Html.ActionLink("Add Owner Details", "AddOwner")
+                    </button>
+                </th>
+                <th>
+                    <button style="background-color:whitesmoke">
+                        @Html.ActionLink("Vehicle Details", "AddVehicle")
+                    </button>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <button style="background-color:limegreen">
+                        @Html.ActionLink("Vehicle Transfer", "GetAll")
+                    </button>
+                </th>
+                <th>
+                    <button style="background-color:whitesmoke">
+                        @Html.ActionLink("Registration", "Registration")
+                    </button>
+                </th>
+            </tr>
+            <tr>
+                    <th colspan="2">
+                        <button style="background-color:orange">
+                            @Html.ActionLink("Generate Report", "GenerateReport")
+                        </button>
+                    </th>
+            </tr>
+        </table>
     </form>
 </body>

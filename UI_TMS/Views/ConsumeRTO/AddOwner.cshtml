@@ -1,16 +1,17 @@
-﻿<body style="background-color:antiquewhite">
+﻿<link rel="stylesheet" href="~/css/style.css"/>
+<body style="background-color:antiquewhite">
 @model TMS_CRS.Models.TmOwnerdetail;
     <form method="post">
         @Html.ValidationSummary(true)
         <marquee><h2 style="color:maroon">Welcome to User Registration Page</h2></marquee>
-        <table border="3" style="margin-left:auto;margin-right:auto;">
+        <table  style="margin-left:auto;margin-right:auto;">
             <tr>
                 <th>First Name</th>
-                <td>@Html.TextAreaFor(x => x.Fname)</td>
+                <td>@Html.TextBoxFor(x => x.Fname)</td>
             </tr>
             <tr>
                 <th>Last Name</th>
-                <td>@Html.TextAreaFor(x => x.Lname)</td>
+                <td>@Html.TextBoxFor(x => x.Lname)</td>
             </tr>
             <tr>
                 <th>Date of Birth</th>
@@ -56,11 +57,11 @@
                 <td>@Html.TextBoxFor(x => x.AddProofName)</td>
             </tr>
             <tr>
-                <th colspan="2" style="text-align:center"><input type="submit" value="Submit" style="background-color:brown" /></th>
+                <th colspan="2" style="text-align:center"><input type="submit" value="Submit" style="background-color:dodgerblue" /></th>
             </tr>
         </table>
         <div>
-            <button style="background-color:white;">
+            <button>
                 @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
             </button>
         </div>

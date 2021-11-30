@@ -1,9 +1,11 @@
-﻿@model TMS_CRS.Models.TmRegdetail
+﻿<link rel="stylesheet" href="~/css/style.css" />
+@model TMS_CRS.Models.TmRegdetail
 <form method="post">
+    @Html.ValidationSummary(true)
     <table>
         <tr>
             <th>Old Owner ID</th>
-            <td>@Html.EditorFor(x => x.OldOwnerId)</td>
+            <td>@Html.EditorFor(x => x.OldOwnerId,new { @readonly = true })</td>
         </tr>
         <tr>
             <th>Owner ID</th>
@@ -11,11 +13,11 @@
         </tr>
         <tr>
             <th>Old Owner</th>
-            <td>@Html.EditorFor(x => x.OldOwner)</td>
+            <td>@Html.EditorFor(x => x.OldOwner.OwnerId, new { @readonly = true })</td>
         </tr>
         <tr>
             <th>Owner</th>
-            <td>@Html.EditorFor(x => x.Owner)</td>
+            <td>@Html.TextBoxFor(x => x.Owner.Fname)</td>
         </tr>
         <tr>
             <th><input type="submit" value="Submit" /></th>

@@ -1,0 +1,23 @@
+﻿<link rel="stylesheet" href="~/css/style.css" />
+@model List<TMS_CRS.Models.TmRegdetail>
+<form method="post">
+    <table>
+        <tr>
+            <th><b>Owner Id</b></th>
+            <th><b>Owner</b></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@item.OwnerId</td>
+        <td>@item.VehNo</td>
+        <td>@Html.ActionLink("Edit : " + item.OwnerId, "Transferdetails", "ConsumeRTO", new { ID = item.OwnerId }, null)</td>
+    </tr>
+        }
+    </table>
+</form>
+<div>
+    <button style="background-color:white;">
+        @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
+    </button>
+</div>

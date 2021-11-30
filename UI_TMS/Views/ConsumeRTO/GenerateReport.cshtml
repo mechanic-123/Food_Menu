@@ -1,30 +1,41 @@
-﻿@model List<TMS_CRS.Models.TmOwnerdetail>;
+﻿<link rel="stylesheet" href="~/css/style.css" />
+@model List<TMS_CRS.Models.TmRegdetail>;
 <form method="post">
     <table>
         <tr>
             <th>Enter Owner ID</th>
-            <td><input type="number" name="id"/></td>
+            <td><input type="number" name="id" /></td>
         </tr>
         <tr>
-            <th><input type="submit" value="Submit"/></th>
+            <th><input type="submit" value="Submit" /></th>
         </tr>
     </table>
 </form>
-@if(Model != null)
+@if (Model != null)
 {
-    <table>
+    <table border="1">
         <tr>
             <th>Owner ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Date of Purchase</th>
+            <th>Distributer Name</th>
+            <th>Vehicle ID</th>
+            <th>Vehicle Number</th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
                 <td>@item.OwnerId</td>
-                <td>@item.Fname</td>
-                <td>@item.Lname</td>
+                <td>@item.DateOfPurchase</td>
+                <td>@item.DistrubuterName</td>
+                <td>@item.VehId</td>
+                <td>@item.VehNo</td>
             </tr>
         }
     </table>
 }
+<br />
+<div>
+    <button style="background-color:white;">
+        @Html.ActionLink("Back", "RTOHome", "ConsumeRTO")
+    </button>
+</div>
