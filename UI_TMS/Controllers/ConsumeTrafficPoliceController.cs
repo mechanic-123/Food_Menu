@@ -125,6 +125,41 @@ namespace UI_TMS.Controllers
             }
             return View(offlist);
         }
+        public IActionResult PayOffence()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult PayOffence(string vno)
+        {
+            vno = Request.Form["vno"];
+            List<OffenceDetail> offlist = new List<OffenceDetail>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://localhost:12850");
+                var responedata = client.GetAsync("/api/TrafficPolice/GenerateReport/" + vno);
+                responedata.Wait();
+                var result = responedata.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readresult = result.Content.ReadAsAsync<List<OffenceDetail>>();
+                    readresult.Wait();
+                    offlist = readresult.Result;
+                }
+            }
+            return View(offlist);
+        }
+        public IActionResult PayOut(int id)
+        {
+            TMSDBContext db = new TMSDBContext();
+            var op = (from o in db.OffenceDetails
+                      where o.OffenceId == id
+                      select o).SingleOrDefault();
+            op.Status = "PAID";
+            db.Update(op);
+            db.SaveChanges();
+            return RedirectToAction("PayOffence");
+        }
     }
 
 

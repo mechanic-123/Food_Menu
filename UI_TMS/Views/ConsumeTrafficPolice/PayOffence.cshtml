@@ -1,0 +1,64 @@
+﻿<body style="background-color:antiquewhite">
+
+    @model List<TMS_CRS.Models.OffenceDetail>
+    <marquee><h1 style="color:saddlebrown">Welcome To TMS</h1></marquee>
+    <p>Please Enter your Vehicle Number to check for offence details.</p>
+    <form method="post">
+        <table>
+            <tr>
+                <th>Enter Vechile Number:</th>
+                <td><input type="text" name="vno" /></td>
+            </tr>
+            <tr>
+
+                <th><input type="submit" value="Search" style="background-color:deepskyblue" /></th>
+            </tr>
+        </table>
+    </form>
+    <br />
+    <br />
+    <br />
+    @if (Model != null)
+    {
+        <table border="4">
+            <tr>
+
+                <th>offence Id</th>
+                <th>Place</th>
+                <th>Timing</th>
+                <th>Reported By</th>
+                <th>Status</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+
+            <td>@item.OffenceId</td>
+            <td>@item.Place</td>
+            <td>@item.Time</td>
+            <td>@item.ReportedBy</td>
+            @if (item.Status == "NOT PAID")
+            {
+                <td>@Html.ActionLink("Click to Pay", "EditOffence", new { ono = item.OffenceNo })</td>
+            }
+            @if (item.Status == "PAID")
+            {
+                <td>@item.Status</td>
+            }
+        </tr>
+            }
+        </table>
+    }
+    <br />
+    <br />
+    <br />
+    <br />
+</body>
+<div>
+    <button style="background-color: white; float: right; height: 50px; width: 100px;">
+        @Html.ActionLink("Back", "UserLogin", "ConsumeUser")
+    </button>
+</div>
+<br />
+<br />
+<br />

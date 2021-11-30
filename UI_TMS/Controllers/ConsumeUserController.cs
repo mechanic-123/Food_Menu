@@ -34,7 +34,7 @@ namespace UI_TMS.Controllers
                 if (Convert.ToString(role) == "Traffic_Police")
                     return RedirectToAction("HomePage", "ConsumeTrafficPolice");
                 if (Convert.ToString(role) == "Vehicle_Owner")
-                    return RedirectToAction("", "");
+                    return RedirectToAction("PayOffence", "ConsumeTrafficPolice");
             }
             else
                 ModelState.AddModelError("", "Invalid Username or Password");
