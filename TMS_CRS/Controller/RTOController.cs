@@ -54,5 +54,11 @@ namespace TMS_CRS.Controller
         {
             return r.GetAll();
         }
+        [HttpGet]
+        [Route("/api/RTO/GetById/{id}")]
+        public TmRegdetail Get(long id)
+        {
+            return r.GetById(id);
+        }
     }
 }

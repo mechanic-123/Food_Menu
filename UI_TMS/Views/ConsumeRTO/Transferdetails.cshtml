@@ -5,7 +5,7 @@
     <table>
         <tr>
             <th>Old Owner ID</th>
-            <td>@Html.EditorFor(x => x.OldOwnerId,new { @readonly = true })</td>
+            <td>@Html.EditorFor(x => x.OldOwnerId, new {  htmlAttributes = new { disabled = true, placeholder = Model.OwnerId }, @readonly = "readonly" })</td>
         </tr>
         <tr>
             <th>Owner ID</th>
