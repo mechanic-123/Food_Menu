@@ -130,7 +130,6 @@ namespace UI_TMS.Controllers
                 responsedata.Wait();
 
                 var result = responsedata.Result;
-                ModelState.AddModelError("", id.ToString());
                 if (result.IsSuccessStatusCode)
                 {
                     var readresult = result.Content.ReadAsAsync<TmRegdetail>();

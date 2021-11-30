@@ -5,20 +5,20 @@
     <table>
         <tr>
             <th>Old Owner ID</th>
-            <td>@Html.EditorFor(x => x.OldOwnerId, new {  htmlAttributes = new { disabled = true, placeholder = Model.OwnerId }, @readonly = "readonly" })</td>
+            <td>@Html.EditorFor(x => x.OldOwnerId, new {  htmlAttributes = new { disabled = true, placeholder = Model.OwnerId,value=Model.OwnerId } })</td>
         </tr>
         <tr>
-            <th>Owner ID</th>
+            <th>New Owner ID</th>
             <td>@Html.EditorFor(x => x.OwnerId)</td>
         </tr>
-        <tr>
+        @*<tr>
             <th>Old Owner</th>
             <td>@Html.EditorFor(x => x.OldOwner.OwnerId, new { @readonly = true })</td>
         </tr>
         <tr>
             <th>Owner</th>
             <td>@Html.TextBoxFor(x => x.Owner.Fname)</td>
-        </tr>
+        </tr>*@
         <tr>
             <th><input type="submit" value="Submit" /></th>
         </tr>
