@@ -53,7 +53,7 @@ namespace UI_TMS.Controllers
                 {
                     u.Username = Request.Form["username"];
                     string rname = Request.Form["rolename"];
-                    if (rname != "RTO_Officer" || rname != "Traffic_Police" || rname != "Vehicle_Owner")
+                    if (rname != "RTO_Officer" && rname != "Traffic_Police" && rname != "Vehicle_Owner")
                         ModelState.AddModelError("", "Invalid Rolename");
                     else
                     {
