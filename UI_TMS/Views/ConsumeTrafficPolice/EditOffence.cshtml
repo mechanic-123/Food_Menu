@@ -2,7 +2,7 @@
     @model TMS_CRS.Models.OffenceDetail
     @using (Html.BeginForm())
     {
-        <table border="3"style="margin-left:auto;margin-right:auto;margin-top:10%">
+        <table border="3" style="margin-left:auto;margin-right:auto;margin-top:10%">
             <tr>
                 <td><b>Offence No</b></td>
                 <td>@Html.TextBoxFor(x => x.OffenceNo, new { @readonly = true })</td>
@@ -33,7 +33,8 @@
     @Html.ValidationSummary(true)
 
 </body>
-<br/>
-<br/>
-<br/>
-<td><button type="button" onclick="location.href='@Url.Action("HomePage")'">Return To HomePage</button></td>
+<br />
+<br />
+<br />
+<a href="##" onClick="history.go(-1); return false;"> Back</a>
+@*<td><button type="button" onclick="location.href='@Url.Action("HomePage")'">Return To HomePage</button></td>*@

@@ -30,10 +30,13 @@
                 <label for="password"></label>
                 <input type="password" class="inputFields" id="password" name="password" placeholder="Password" required />
             </li>
+            <li>
+                @Html.ValidationSummary(true)
+            </li>
             <li id="center-btn">
                 <input type="submit" id="register-btn" name="register" alt="Register" value="Register">
             </li>
         </ul>
     </form>
+    
 </div>
-@Html.ValidationSummary(true)

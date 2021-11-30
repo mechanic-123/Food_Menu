@@ -13,7 +13,7 @@ namespace TMS_CRS.Models
         public DateTime Time { get; set; }
         [Required(ErrorMessage ="Place cannot be blank")]
         public string Place { get; set; }
-        [Required(ErrorMessage ="Offence id should be selected from dropdown list")]
+        
         public int? OffenceId { get; set; }
         [Required(ErrorMessage ="Reported by cannot be blank")]
         public string ReportedBy { get; set; }
