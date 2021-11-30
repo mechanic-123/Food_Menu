@@ -5,11 +5,31 @@
     <table>
         <tr>
             <th>Old Owner ID</th>
-            <td>@Html.EditorFor(x => x.OwnerId, new {  htmlAttributes = new { disabled = true} })</td>
+            <td>@Html.EditorFor(x => x.OwnerId, new { htmlAttributes = new { disabled = true } })</td>
         </tr>
         <tr>
             <th>New Owner ID</th>
             <td>@Html.EditorFor(x => x.OwnerId)</td>
+        </tr>
+        <tr>
+            <th><b>Application Number</b></th>
+            <td>@Html.EditorFor(x => x.AppNo, new { htmlAttributes = new { disabled = true } })</td>
+        </tr>
+        <tr>
+            <th><b>Vehicle Number</b></th>
+            <td width: 550px;>@Html.TextBoxFor(x => x.VehNo, new { @readonly = true })</td>
+        </tr>
+        <tr>
+            <th><b>Vehicle ID</b></th>
+            <td>@Html.TextBoxFor(x => x.VehId, new { @readonly = true })</td>
+        </tr>
+        <tr>
+            <th><b>Date of Purchase</b></th>
+            <td>@Html.TextBoxFor(x => x.DateOfPurchase, new { @readonly = true })</td>
+        </tr>
+        <tr>
+            <th><b>Distributer Name</b></th>
+            <td>@Html.TextBoxFor(x => x.DistrubuterName, new { @readonly = true })</td>
         </tr>
         <tr>
             <th colspan="2" style="text-align:center">@Html.TextBox("sub_button", "Submit", new { type = "submit", style = "background-color:#00beff;height: 50px; width: 100px;" })</th>

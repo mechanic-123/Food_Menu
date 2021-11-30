@@ -37,10 +37,10 @@ namespace TMS_CRS.Controller
             return r.Registration(reg);
         }
         [HttpPut]
-        [Route("/api/RTO/Transferdetails/{vehId}")]
-        public bool Put(TmRegdetail reg, long vehId)
+        [Route("/api/RTO/Transferdetails/{appno}")]
+        public bool Put(TmRegdetail reg, string appno)
         {
-            return r.Transferdetails(reg, vehId);
+            return r.Transferdetails(reg, appno);
         }
         [HttpGet]
         [Route("/api/RTO/GenerateReport/{id}")]
@@ -55,10 +55,10 @@ namespace TMS_CRS.Controller
             return r.GetAll();
         }
         [HttpGet]
-        [Route("/api/RTO/GetById/{id}")]
-        public TmRegdetail Get(long id)
+        [Route("/api/RTO/GetById/{appno}")]
+        public TmRegdetail Get(string appno)
         {
-            return r.GetById(id);
+            return r.GetById(appno);
         }
     }
 }

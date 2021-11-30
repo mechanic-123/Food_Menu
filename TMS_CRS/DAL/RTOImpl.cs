@@ -49,9 +49,9 @@ namespace TMS_CRS.DAL
             return db.TmRegdetails.ToList();
         }
 
-        public TmRegdetail GetById(long id)
+        public TmRegdetail GetById(string appno)
         {
-            return db.TmRegdetails.Where(x => x.VehId == id).FirstOrDefault();
+            return db.TmRegdetails.Where(x => x.AppNo == appno).FirstOrDefault();
         }
 
         public int Registration(TmRegdetail r)
@@ -64,17 +64,16 @@ namespace TMS_CRS.DAL
                 return 0;
         }
 
-        public bool Transferdetails(TmRegdetail newval, long vehId)
+        public bool Transferdetails(TmRegdetail r, string appno)
         {
-            var olddata = db.TmRegdetails.Where(x => x.VehId == vehId).FirstOrDefault();
+            var olddata = db.TmRegdetails.Where(x => x.AppNo == appno).FirstOrDefault();
             olddata.OldOwnerId = olddata.OwnerId;
-            olddata.OwnerId = newval.OwnerId;
+            olddata.OwnerId = r.OwnerId;
             var res = db.SaveChanges();
             if (res == 1)
                 return true;
             else
                 return false;
         }
-
     }
 }

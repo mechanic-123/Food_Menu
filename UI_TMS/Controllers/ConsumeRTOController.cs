@@ -120,13 +120,13 @@ namespace UI_TMS.Controllers
             }
             return View(custlst);
         }
-        public IActionResult Transferdetails(long id)
+        public IActionResult Transferdetails(string appno)
         {
             TmRegdetail reg = new TmRegdetail();
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12850/api/RTO/");
-                var responsedata = client.GetAsync("GetById/" + id);
+                var responsedata = client.GetAsync("GetById/" + appno);
                 responsedata.Wait();
 
                 var result = responsedata.Result;
@@ -140,16 +140,16 @@ namespace UI_TMS.Controllers
             return View(reg);
         }
         [HttpPost]
-        public IActionResult Transferdetails(TmRegdetail r, long id)
+        public IActionResult Transferdetails(TmRegdetail reg, string appno)
         {
             try
             {
                 //id = Convert.ToInt32(r.VehId);
-                ModelState.AddModelError("", id.ToString());
+                ModelState.AddModelError("", appno.ToString());
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("http://localhost:12850/api/");
-                    var responsedata = client.PutAsJsonAsync("RTO/Transferdetails/" + r,id);
+                    var responsedata = client.PutAsJsonAsync("RTO/Transferdetails/" + reg,appno);
                     responsedata.Wait();
 
                     var result = responsedata.Result;

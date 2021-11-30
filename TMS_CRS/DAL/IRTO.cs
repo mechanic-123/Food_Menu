@@ -9,12 +9,12 @@ namespace TMS_CRS.DAL
     public interface IRTO
     {
         int AddOwner(TmOwnerdetail o);
-        bool Transferdetails(TmRegdetail r, long vehId);
+        bool Transferdetails(TmRegdetail r, string appno);
         int AddVechile(TmVehicledetail v);
         int Registration(TmRegdetail r);
         List<TmRegdetail> GetAll();
         List<TmRegdetail> GenerateReport(int id);
-        TmRegdetail GetById(long id);
+        TmRegdetail GetById(string appno);
 
 
 
