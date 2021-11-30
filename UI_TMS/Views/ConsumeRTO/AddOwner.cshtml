@@ -8,22 +8,27 @@
             <tr>
                 <th>First Name</th>
                 <td>@Html.TextBoxFor(x => x.Fname)</td>
+                <td><em>@Html.ValidationMessageFor(x=>x.Fname)</em></td>
             </tr>
             <tr>
                 <th>Last Name</th>
                 <td>@Html.TextBoxFor(x => x.Lname)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.Lname)</em></td>
             </tr>
             <tr>
                 <th>Date of Birth</th>
                 <td>@Html.TextBoxFor(x => x.Dateofbirth, new { type = "date" })</td>
+                <td><em>@Html.ValidationMessageFor(x => x.Dateofbirth)</em></td>
             </tr>
             <tr>
                 <th>LandLine Number</th>
                 <td>@Html.EditorFor(x => x.LandlineNo)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.LandlineNo)</em></td>
             </tr>
             <tr>
                 <th>Mobile Number</th>
                 <td>@Html.EditorFor(x => x.MobileNo)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.MobileNo)</em></td>
             </tr>
             <tr>
                 <th>Gender</th>
@@ -31,30 +36,44 @@
                     @Html.RadioButtonFor(x => x.Gender, "Male")Male
                     @Html.RadioButtonFor(x => x.Gender, "Female")Female
                 </td>
+                <td><em>@Html.ValidationMessageFor(x => x.Gender)</em></td>
+
             </tr>
             <tr>
                 <th>Temporary Address</th>
                 <td>@Html.TextAreaFor(x => x.TempAddr)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.TempAddr)</em></td>
+
             </tr>
             <tr>
                 <th>Permanent Address</th>
                 <td>@Html.TextAreaFor(x => x.PermAddr)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.PermAddr)</em></td>
+
             </tr>
             <tr>
                 <th>Pincode</th>
                 <td>@Html.EditorFor(x => x.Pincode)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.Pincode)</em></td>
+
             </tr>
             <tr>
                 <th>Occupation</th>
                 <td>@Html.TextBoxFor(x => x.Occupation)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.Occupation)</em></td>
+
             </tr>
             <tr>
                 <th>PanCard Number</th>
                 <td>@Html.TextBoxFor(x => x.PancardNo)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.PancardNo)</em></td>
+
             </tr>
             <tr>
                 <th>Address Proof Name</th>
                 <td>@Html.TextBoxFor(x => x.AddProofName)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.AddProofName)</em></td>
+
             </tr>
             <tr>
                 <th colspan="2" style="text-align:center">@Html.TextBox("sub_button", "Submit", new { type = "submit",style= "background-color:#00beff;height: 50px; width: 100px;" })</th>
