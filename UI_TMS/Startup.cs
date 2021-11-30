@@ -46,7 +46,7 @@ namespace UI_TMS
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=ConsumeRTO}/{action=RTOHome}/{id?}");
+                    pattern: "{controller=ConsumeUser}/{action=UserLogin}/{id?}");
             });
         }
     }
