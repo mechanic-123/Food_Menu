@@ -69,6 +69,7 @@ namespace TMS_CRS.DAL
             var olddata = db.TmRegdetails.Where(x => x.AppNo == appno).FirstOrDefault();
             olddata.OldOwnerId = olddata.OwnerId;
             olddata.OwnerId = r.OwnerId;
+            db.Update(olddata);
             var res = db.SaveChanges();
             if (res == 1)
                 return true;
