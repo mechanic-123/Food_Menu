@@ -14,6 +14,7 @@ namespace TMS_CRS.DAL
         int Registration(TmRegdetail r);
         List<TmRegdetail> GetAll();
         List<TmRegdetail> GenerateReport(int id);
+        TmRegdetail GetById(long id);
 
 
 

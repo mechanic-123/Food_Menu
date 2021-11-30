@@ -120,13 +120,13 @@ namespace UI_TMS.Controllers
             }
             return View(custlst);
         }
-        public IActionResult Transferdetails(int vehId)
+        public IActionResult Transferdetails(long id)
         {
             TmRegdetail reg = new TmRegdetail();
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:12850/api/RTO/");
-                var responsedata = client.GetAsync("Transferdetails/" + vehId);
+                var responsedata = client.GetAsync("GetById/" + id);
                 responsedata.Wait();
 
                 var result = responsedata.Result;
