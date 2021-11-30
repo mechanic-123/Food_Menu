@@ -8,26 +8,32 @@
             <tr>
                 <th><b>Application Number</b></th>
                 <td>@Html.EditorFor(x => x.AppNo)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.AppNo)</em></td>
             </tr>
             <tr>
                 <th><b>Vehicle Number</b></th>
                 <td width: 550px;>@Html.TextBoxFor(x => x.VehNo)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.VehNo)</em></td>
             </tr>
             <tr>
                 <th><b>Vehicle ID</b></th>
                 <td>@Html.TextBoxFor(x => x.VehId)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.VehId)</em></td>
             </tr>
             <tr>
                 <th><b>Owner ID</b></th>
                 <td>@Html.TextBoxFor(x => x.OwnerId)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.OwnerId)</em></td>
             </tr>
             <tr>
                 <th><b>Date of Purchase</b></th>
                 <td>@Html.TextBoxFor(x => x.DateOfPurchase, new { type = "date" })</td>
+                <td><em>@Html.ValidationMessageFor(x => x.DateOfPurchase)</em></td>
             </tr>
             <tr>
                 <th><b>Distributer Name</b></th>
                 <td>@Html.TextBoxFor(x => x.DistrubuterName)</td>
+                <td><em>@Html.ValidationMessageFor(x => x.DistrubuterName)</em></td>
             </tr>
             
             <tr>
