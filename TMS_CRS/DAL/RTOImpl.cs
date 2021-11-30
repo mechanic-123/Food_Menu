@@ -49,6 +49,11 @@ namespace TMS_CRS.DAL
             return db.TmRegdetails.ToList();
         }
 
+        public TmRegdetail GetById(long id)
+        {
+            return db.TmRegdetails.Where(x => x.OwnerId == id).FirstOrDefault();
+        }
+
         public int Registration(TmRegdetail r)
         {
             db.TmRegdetails.Add(r);
